@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Menu": "Menu",
+        "Close": "Close",
+        "Back": "Main page",
+        "About": "About us",
+        "Services": "Services",
+        "Contacts": "Contacts",
+        "For_partners": "Become a partner",
+        "For_clients": "For clients",
+        "Language": "Language",
+        "PartnerForm": "Partner Contact Form",
+        "ClientForm": "Client Contact Form",
+        "Default": "Contact Form",
+        "Name": "Name: ",
+        "Method": "Contact method: ",
+        "Phone": "Phone",
+        "Email": "Email",
+        "TG": "Telegram",
+        "Contact_info": "Contact details: ",
+        "Massage": "Message: ",
+        "Enter": "Submit"
+    }
+}
