@@ -1,22 +1,20 @@
 import './App.css';
 import './Languages/i18n';
-import Header from "./Components/Header"
-import Content from "./Components/Content"
-import StartBlock from "./Components/StartBlock"
-import Background from "./Components/Background"
+import './Components/Stars.scss';
 
 function App() {
   return (
       <div className="App">
-        <header>
-          <Header/>
-        </header>
 
-        <div id="Body">
-            <Background/>
-            {/*<StartBlock/>*/}
-            {/*<Content/>*/}
-        </div>
+          <div
+              id="Body"
+          >
+              <div id="stars"></div>
+              <div id="stars2"></div>
+              <div id="stars3"></div>
+
+          </div>
+
       </div>
   );
 }
