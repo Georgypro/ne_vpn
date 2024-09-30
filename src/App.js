@@ -1,18 +1,17 @@
 import './App.css';
 import './Languages/i18n';
-import './Components/Stars.scss';
+import Background from "./Components/Background";
+import Content from './Components/Content'
 
 function App() {
   return (
       <div className="App">
 
-          <div
-              id="Body"
-          >
-              <div id="stars"></div>
-              <div id="stars2"></div>
-              <div id="stars3"></div>
-
+          <div id="Body">
+              <div>
+                  <Background/>
+              </div>
+              <Content/>
           </div>
 
       </div>
