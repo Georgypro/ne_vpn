@@ -1,24 +1,28 @@
 {
-    "Header": {
-        "Menu": "Menu",
-        "Close": "Close",
-        "Back": "Main page",
-        "About": "About us",
-        "Services": "Services",
-        "Contacts": "Contacts",
-        "For_partners": "Become a partner",
-        "For_clients": "For clients",
-        "Language": "Language",
-        "PartnerForm": "Partner Contact Form",
-        "ClientForm": "Client Contact Form",
-        "Default": "Contact Form",
-        "Name": "Name: ",
-        "Method": "Contact method: ",
-        "Phone": "Phone",
-        "Email": "Email",
-        "TG": "Telegram",
-        "Contact_info": "Contact details: ",
-        "Massage": "Message: ",
-        "Enter": "Submit"
-    }
+    "Description": [
+        {
+            "title": "Независимость",
+            "text": "Наши протоколы безопасности не позволят никому диктовать вам, как пользоваться интернетом."
+        },
+        {
+            "title": "Скорость",
+            "text": "Мы быстрее всех конкурентов, у нас нет никаких ограничений по скорости. Она зависит от вашего интернет соединения и ограничений провайдера."
+        },
+        {
+            "title": "Приватность",
+            "text": "За вами не смогут следить ни государства, ни операторы связи, вообще никто."
+        },
+        {
+            "title": "Безопасность",
+            "text": "Для нас ваша безопасность - наивысший приоритет, мы не храним и не обрабатываем никакие данные!"
+        },
+        {
+            "title": "Технологии",
+            "text": "Мы используем только самые современные технологии. Постоянно улучшаем и адаптируем код для вашего комфорта."
+        },
+        {
+            "title": "Антиреклама",
+            "text": "Мы постоянно работаем, чтобы хотя бы частично блокировать сторонние рекламные баннеры."
+        }
+    ]
 }
