@@ -34,7 +34,7 @@
 .TitleDescription h1 {
     margin: 0;
     font-weight: normal;
-    background: linear-gradient(to bottom, #ffffff, #444857); /* Вертикальный градиент */
+    background: linear-gradient(to bottom, #ffffff, #555555); /* Вертикальный градиент */
     -webkit-background-clip: text;
     color: transparent;
 }
