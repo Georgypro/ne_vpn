@@ -98,7 +98,7 @@
 }
 
 
-#InteractionBlock {
+#RegistrationBlock {
     width: 40%;
     height: 50vh;
     min-height: 500px;
@@ -385,7 +385,7 @@
     }
 
 
-    #InteractionBlock {
+    #RegistrationBlock {
         width: 55%;
         height: 50vh;
         min-height: 500px;
