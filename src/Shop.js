@@ -20,12 +20,12 @@ function Shop() {
         const widget = new window.cp.CloudPayments();
         widget.pay('charge',
             {
-                publicId: localStorage.getItem('uid'),
+                publicId: `pk_f9271576545f4a2a5a96ef79140ae`,
                 description: 'Покупочка вот такая',
                 amount: 100,
                 currency: 'RUB',
                 accountId: localStorage.getItem('email'),
-                invoiceId: '1234567',
+                invoiceId: localStorage.getItem('uid'),
                 skin: "modern",
                 data: { myProp: 'myProp value' }
             },
@@ -45,7 +45,7 @@ function Shop() {
 
     return (
         <div>
-            <button id="checkout" onClick={pay}>TAKE MY MONEY</button>
+            <button id="checkout" onClick={pay} style={{height:200}}>TAKE MY MONEY</button>
         </div>
     );
 }

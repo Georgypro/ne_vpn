@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Content.css';
 import { GoChevronRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import logo from "../logo.svg";
-import { signInWithGoogle } from '../registration/firebase.js';
 import SignInButton from "../registration/SignInButton";
 
 function Content() {
@@ -15,18 +14,29 @@ function Content() {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-
-        // Apple Sign-in function
-        const signInWithApple = () => {
-            window.AppleID.auth.signIn()
-                .then((data) => {
-                    console.log('User info from Apple:', data);
-                })
-                .catch((error) => {
-                    console.error('Error during Apple sign-in:', error);
-                });
-        };
-
+    // Initialize Yandex Auth button
+    useEffect(() => {
+        window.YaAuthSuggest.init(
+            {
+                client_id: "7fd395f0a6944763b7ef425780b76e24",
+                response_type: "token",
+                redirect_uri: "https://gostlink.ru"
+            },
+            "https://gostlink.ru",
+            {
+                view: "button",
+                parentId: "YandexAuthContainerId",
+                buttonSize: 'm',
+                buttonView: 'main',
+                buttonTheme: 'dark',
+                buttonBorderRadius: "22",
+                buttonIcon: 'ya',
+            }
+        )
+            .then(({handler}) => handler())
+            .then(data => console.log('Сообщение с токеном', data))
+            .catch(error => console.log('Обработка ошибки', error))
+    }, []);
 
         return (
             <>
@@ -54,12 +64,9 @@ function Content() {
                     </div>
 
                     <div id="RegistrationBlock">
+                        <span>Войти с помощью</span>
                         <SignInButton/>
-
-                        {/* Apple Sign-in Button */}
-                        <div id="appleid-signin">
-                            <img src="https://appleid.cdn-apple.com/appleid/button" alt="Sign in with Apple"/>
-                        </div>
+                        <div id="YandexAuthContainerId"></div>
                     </div>
                 </div>
             </>

@@ -33,10 +33,21 @@ const SignInButton = () => {
         fetch(`https://gostlink.ru/api/register`, {
             method: 'POST',
             headers: {
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(requestData),
         })
-            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                return response.text();
+            })
+            .then(text => {
+                console.log(text);  // Log the raw text response
+                if (text) {
+                    return JSON.parse(text);
+                }
+                return {};
+            })
             .then(data => {
                 console.log(data);
                 if (data.success) {
@@ -47,12 +58,11 @@ const SignInButton = () => {
             })
             .catch(error => {
                 console.error('Fetch error:', error);
-                // Navigate even on error
                 navigate(`/shop`);
             });
     };
 
-    return <button onClick={handleGoogleSignIn}>Sign in with Google</button>;
+        return <button onClick={handleGoogleSignIn}>Sign in with Google</button>;
 };
 
 export default SignInButton;

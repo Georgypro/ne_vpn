@@ -110,7 +110,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
-
+    flex-direction: column;
     /*border: solid 1px red;*/
 }
 
