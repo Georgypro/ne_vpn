@@ -8,6 +8,7 @@ import StartPage from "./StartPage.js";
 import Shop from "./Shop.js";
 import Background from "./components/Background";
 import Content from "./components/Content";
+import YAuth from "./registration/YAuth";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                   </div>
                   <Router>
                       <Routes>
+                          <Route path="/yauth" element={<YAuth/>}/>
                           <Route path="/shop" element={<Shop/>}/>
                           <Route path="" element={<StartPage/>}/>
                           <Route path="/" element={<StartPage/>}/>
