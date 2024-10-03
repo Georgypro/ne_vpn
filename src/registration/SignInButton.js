@@ -1,5 +1,7 @@
 import { signInWithGoogle } from '../registration/firebase.js';
 import { useNavigate } from 'react-router-dom';
+import Google from "../GoogleLogo.svg"
+
 
 const SignInButton = () => {
     const navigate = useNavigate();
@@ -62,7 +64,11 @@ const SignInButton = () => {
             });
     };
 
-        return <button onClick={handleGoogleSignIn}>Sign in with Google</button>;
+        return <button className="RegistrationButton" onClick={handleGoogleSignIn}>
+            <div className='RegistrationBlock_logo'><img src={Google} width='100%'/></div>
+            <p>Войти через Google</p>
+            <div className='RegistrationBlock_logo'></div>
+        </button>;
 };
 
 export default SignInButton;
