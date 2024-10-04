@@ -5,13 +5,13 @@ function YAuth() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Step 1: Extract the access_token from the URL hash
+        // Step 1: Extract the access_token from the URL hash.
         const hash = window.location.hash;
         const accessToken = new URLSearchParams(hash.substring(1)).get('access_token');
         localStorage.setItem('yandex_token', accessToken);
 
         if (accessToken) {
-            // Step 2: Make the request to Yandex API to get user info
+            // Step 2: Make the request to Yandex API to get user info.
             fetch('https://login.yandex.ru/info', {
                 method: 'GET',
                 headers: {
@@ -22,11 +22,12 @@ function YAuth() {
                 .then((data) => {
                     console.log(data);
                     // Step 3: Save the user info in local storage
-                    localStorage.setItem('client_id', data.client_id);
+                    localStorage.setItem('uid', data.client_id);
                     localStorage.setItem('email', data.default_email);
                     // localStorage.setItem('name', data.real_name);
                     localStorage.setItem('photoUrl', data.default_avatar_id);
-                    handleReg(data.default_avatar_id, data.default_email, data.default_avatar_id, 'yandex.ru')
+                    localStorage.setItem('providerId', 'yandex.ru');
+                    handleReg(data.client_id, data.default_email, data.default_avatar_id, 'yandex.ru')
                     setLoading(false);
 
                 })

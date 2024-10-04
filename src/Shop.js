@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import './languages/i18n';
+import { ChakraProvider } from '@chakra-ui/react';
+import Pricing from "./Pricing";
 
 function Shop() {
     useEffect(() => {
@@ -27,7 +29,7 @@ function Shop() {
                 accountId: localStorage.getItem('email'),
                 invoiceId: localStorage.getItem('uid'),
                 skin: "modern",
-                data: { myProp: 'myProp value' }
+                data: {myProp: 'myProp value'}
             },
             {
                 onSuccess: function (options) {
@@ -43,10 +45,16 @@ function Shop() {
         );
     };
 
+
     return (
         <div>
-            <button id="checkout" onClick={pay} style={{height:200}}>TAKE MY MONEY</button>
+            {/*<button id="checkout" onClick={pay} style={{height: 200}}>TAKE MY MONEY</button>*/}
+            <span style={{color: 'white'}}>ТВОЯ ПОЧТА: {localStorage.getItem('email')}</span>
+                <ChakraProvider>
+                    <Pricing/>
+                </ChakraProvider>
         </div>
+
     );
 }
 
