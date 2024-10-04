@@ -79,8 +79,10 @@ function Content() {
                     <div id="RegistrationBlock">
                         <h2>Войти с помощью:</h2>
                         <SignInButton/>
-                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-                            <hr className='Line'/><p>или</p><hr style={{rotate: '180'}} className='Line'/>
+                        <div style={{width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                            <hr className='Line'/>
+                            <p style={{margin: '0'}}>или</p>
+                            <hr style={{rotate: '180deg'}} className='Line'/>
                         </div>
 
                         <div className='RegistrationButton'>

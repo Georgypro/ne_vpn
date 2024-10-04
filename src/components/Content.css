@@ -134,6 +134,10 @@
     padding: 0;
 }
 
+.RegistrationButton:hover {
+    cursor: pointer;
+}
+
 .RegistrationBlock_logo {
     height: 30px;
     width: 30px;
@@ -143,9 +147,10 @@
 }
 
 .Line {
-    width: 35%;
+    width: 40%;
     height: 1px;
-    color: white;
+    border: 0;
+    background: linear-gradient(to right, rgba(256, 256, 256, 0) 0%, rgba(256, 256, 256, 1) 50%, rgba(256, 256, 256, 1) 100%);
 }
 
 
