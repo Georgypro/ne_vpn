@@ -72,14 +72,14 @@ function YAuth() {
                 console.log(data);
                 if (data.success) {
                     localStorage.setItem('isYandexAuth', "true");
-                    window.close();
+                    // window.close();
                 } else {
                     // Handle failure notification
                 }
             })
             .catch(error => {
                 console.error('Fetch error:', error);
-                window.close();
+                // window.close();
             });
     }
 

@@ -17,6 +17,12 @@ function Content() {
     };
 
     useEffect(() => {
+        if (localStorage.getItem('isYandexAuth') === 'true') {
+            navigate('/shop');
+        }
+    }, [navigate]);
+
+    useEffect(() => {
 
         const token = localStorage.getItem("yandexToken");
         const isAuth = localStorage.getItem("isYandexAuth") === "true";
@@ -60,7 +66,7 @@ function Content() {
                 <div className="Content" style={{height: '5vh', marginBottom: '10px', marginTop: '10px'}}>
                     <h2 id="DescriptionSite">Самый быстрый в обитаемой вселенной!</h2>
                 </div>
-                <div className="Content" style={{alignItems: "flex-start", marginBottom: '20px'}}>
+                <div className="Content ColumnContent" style={{alignItems: "flex-start", marginBottom: '20px'}}>
                     <div id="Description">
                         {descriptions.map((item, index) => (
                             <div className="DescriptionElement" key={index}>
