@@ -17,18 +17,10 @@ function Content() {
     };
 
     useEffect(() => {
-        if (localStorage.getItem('isYandexAuth') === 'true') {
-            navigate('/shop');
-        }
-    }, [navigate]);
-
-    useEffect(() => {
-
-        const token = localStorage.getItem("yandexToken");
+        // const token = localStorage.getItem("yandexToken");
         const isAuth = localStorage.getItem("isYandexAuth") === "true";
-
-        if (token && isAuth) { // todo also check mail, photo and uid
-            // Если токен и состояние авторизации сохранены, используем их
+        //
+        if (isAuth) {
             navigate('/shop')
         }
     }, []);
@@ -91,9 +83,7 @@ function Content() {
                             <hr style={{rotate: '180deg'}} className='Line'/>
                         </div>
 
-                        <div className='RegistrationButton'>
-                            <div id="buttonContainerId" style={{width: '100%', height: '100%'}}></div>
-                        </div>
+                        <div id="buttonContainerId" style={{margin: '20px'}}></div>
                     </div>
                 </div>
             </>

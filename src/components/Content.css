@@ -126,6 +126,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
+    justify-items: center;
     align-items: center;
     width: 50%;
     height: 46px;
