@@ -13,7 +13,23 @@ import { CheckIcon } from '@chakra-ui/icons'
 
 const Pricing = () => {
     return (
-        <Center py={9} >
+        <Center py={9} flexDirection="column">
+            {/* New Box for the promotion text */}
+            <Box
+                bg={useColorModeValue('green.400', 'gray.800')}
+                p={2}
+                borderRadius="md"
+                mb={4}
+                textAlign="center"
+                width="calc(3 * 330px + 4 * 16px)"
+            >
+                <Text fontSize="xl" fontWeight="bold" color="white" lineHeight={0.8}>
+                    Только этот сентябрь, скидки до 65%!
+                </Text>
+            </Box>
+
+            {/* Stack to align the other boxes in a row */}
+            <Stack direction="row" spacing={4} width="100%" justify="center">
             <Box
                 maxW={'330px'}
                 w={'full'}
@@ -106,7 +122,8 @@ const Pricing = () => {
                 boxShadow={'2xl'}
                 rounded={'md'}
                 overflow={'hidden'}
-                m={4}>
+                mr={1}
+                ml={1}>
                 <Stack
                     textAlign={'center'}
                     p={2}
@@ -142,27 +159,27 @@ const Pricing = () => {
                 <Box bg={useColorModeValue('gray.50', 'gray.900')} px={3} py={4} >
                     <List spacing={2} fontSize={'xs'} fontWeight={500}>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             ∞ GB/мес
                         </ListItem>
                         <ListItem >
-                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Безграничный доступ к иностранным сервисам
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Работают банковские приложения
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Без ограничений скорости
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Без рекламы
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Подключение с трех устройств
                         </ListItem>
                     </List>
@@ -170,15 +187,15 @@ const Pricing = () => {
                     <Button
                         mt={4}
                         w={'full'}
-                        bg={'yellow.400'}
+                        bg={'green.400'}
                         color={'white'}
                         rounded={'xl'}
                         boxShadow={'0 5px 20px 0px rgb(72 187 120 / 43%)'}
                         _hover={{
-                            bg: 'yellow.500',
+                            bg: 'green.500',
                         }}
                         _focus={{
-                            bg: 'yellow.500',
+                            bg: 'green.500',
                         }}>
                         Выбрать
                     </Button>
@@ -227,27 +244,27 @@ const Pricing = () => {
                 <Box bg={useColorModeValue('gray.50', 'gray.900')} px={3} py={4} >
                     <List spacing={2} fontSize={'xs'} fontWeight={500}>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="red.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             ∞ GB/мес
                         </ListItem>
                         <ListItem >
-                            <ListIcon as={CheckIcon} color="red.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Безграничный доступ к иностранным сервисам
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="red.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Работают банковские приложения
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="red.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Без ограничений скорости
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="red.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Без рекламы
                         </ListItem>
                         <ListItem>
-                            <ListIcon as={CheckIcon} color="red.400" />
+                            <ListIcon as={CheckIcon} color="green.400" />
                             Подключение с пяти устройств
                         </ListItem>
                     </List>
@@ -255,21 +272,21 @@ const Pricing = () => {
                     <Button
                         mt={4}
                         w={'full'}
-                        bg={'red.400'}
+                        bg={'green.400'}
                         color={'white'}
                         rounded={'xl'}
                         boxShadow={'0 5px 20px 0px rgb(72 187 120 / 43%)'}
                         _hover={{
-                            bg: 'red.500',
+                            bg: 'green.500',
                         }}
                         _focus={{
-                            bg: 'red.500',
+                            bg: 'green.500',
                         }}>
                         Выбрать
                     </Button>
                 </Box>
             </Box>
-
+            </Stack>
         </Center>
     )
 }
