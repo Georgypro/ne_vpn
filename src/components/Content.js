@@ -79,11 +79,11 @@ function Content() {
                         <SignInButton/>
                         <div style={{width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                             <hr className='Line'/>
-                            <p style={{margin: '0'}}>или</p>
+                            <p style={{margin: '10px'}}>или</p>
                             <hr style={{rotate: '180deg'}} className='Line'/>
                         </div>
 
-                        <div id="buttonContainerId" style={{margin: '20px'}}></div>
+                        <div id="buttonContainerId" style={{margin: '10px'}}></div>
                     </div>
                 </div>
             </>

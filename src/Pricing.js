@@ -116,7 +116,7 @@ const Pricing = () => {
                 w={'full'}
             >
                 <Text fontSize="xl" fontWeight="bold" color="white" lineHeight={0.8}>
-                    Только в этот {currentMonth}, скидки до 65%!
+                    Только в этот {currentMonth}, скидки до 50%!
                 </Text>
             </Box>
 

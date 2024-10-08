@@ -64,11 +64,13 @@ const SignInButton = () => {
             });
     };
 
-        return <button className="RegistrationButton" onClick={handleGoogleSignIn}>
-            <div className='RegistrationBlock_logo'><img src={Google} width='100%'/></div>
-            <p>Войти через Google</p>
-            <div className='RegistrationBlock_logo'></div>
-        </button>;
+        return (
+            <button className="RegistrationButton" onClick={handleGoogleSignIn}>
+                <div className='RegistrationBlock_logo'><img src={Google} width='100%'/></div>
+                <p>Войти через Google</p>
+                <div className='RegistrationBlock_logo'></div>
+            </button>
+        )
 };
 
 export default SignInButton;

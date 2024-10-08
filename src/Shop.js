@@ -21,34 +21,9 @@ function Shop() {
         };
     }, []);
 
-    // useEffect(() => {
-    //     // Function to check if image exists using Image object
-    //     const checkImage = (url) => {
-    //         const img = new Image();
-    //         img.onload = () => setImageExists(true);
-    //         img.onerror = () => setImageExists(false);
-    //         img.src = url;
-    //     };
-    //
-    //     if (photoUrl) {
-    //         checkImage(photoUrl);
-    //     } else {
-    //         setImageExists(false);
-    //     }
-    // }, [photoUrl]);
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            {/*<div style={{width: 'calc(3 * 330px + 4 * 16px)', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginTop: '30px'}}>*/}
-            {/*    <div style={{textAlign: 'right'}}>*/}
-            {/*        <p style={{color: 'white'}}>Логин: {localStorage.getItem('email')}</p>*/}
-            {/*        <p style={{color: 'white'}}>Подписка до: хх.хх.хх</p>*/}
-            {/*    </div>*/}
-            {/*    <div style={{width: '70px', height: '70px', backgroundColor: 'white', borderRadius: '50%', marginLeft: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>*/}
-            {/*        {!imageExists && <FaUser size='60%' color='gray' />}*/}
-            {/*        {imageExists && <img src={photoUrl} style={{width: '90%', height: '90%', borderRadius: '50%'}} alt='User Avatar' />}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
             <ChakraProvider>
                 <Pricing/>
             </ChakraProvider>
