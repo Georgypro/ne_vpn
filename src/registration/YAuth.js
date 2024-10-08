@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 function YAuth() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Step 1: Extract the access_token from the URL hash.
@@ -72,14 +75,16 @@ function YAuth() {
                 console.log(data);
                 if (data.success) {
                     localStorage.setItem('isYandexAuth', "true");
-                    window.close();
+                    // window.close();
+                    navigate('/shop')
                 } else {
                     // Handle failure notification
                 }
             })
             .catch(error => {
                 console.error('Fetch error:', error);
-                window.close();
+                // window.close();
+                toast.error('Не удалось авторизоваться!')
             });
     }
 

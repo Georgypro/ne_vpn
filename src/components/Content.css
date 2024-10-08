@@ -4,8 +4,6 @@
     justify-content: center;
     align-items: center;
     /*height: 100vh;*/
-
-    border: solid 1px red;
 }
 
 .Content:not(:last-child) {
@@ -14,12 +12,12 @@
 
 
 #LogoSite {
-    width: 100px;
+    width: 80px;
 }
 
 #TitleSite {
     font-size: 70px;
-    margin-left: 50px;
+    margin: 0 0 0 50px;
     background: linear-gradient(to bottom, #ffffff, #444857);
     -webkit-background-clip: text;
     color: transparent;
@@ -38,8 +36,6 @@
     max-width: 450px;
     min-height: 500px;
     margin-left: 50px;
-
-    border: solid 1px red;
 }
 
 .DescriptionElement {
@@ -111,8 +107,6 @@
     overflow-y: auto;
     position: relative;
     flex-direction: column;
-
-    border: solid 1px red;
 }
 
 #RegistrationBlock h2 {
@@ -156,11 +150,11 @@
 }
 
 
-@media (min-width: 851px) and (max-width: 1200px) {
-    #TitleSite {
-        color: firebrick;
-    }
-}
+/*@media (min-width: 851px) and (max-width: 1200px) {*/
+/*    #TitleSite {*/
+/*        color: firebrick;*/
+/*    }*/
+/*}*/
 
 @media (max-width: 850px) {
     #TitleSite {
@@ -278,7 +272,7 @@
         position: relative;
         flex-direction: column;
 
-        border: solid 1px red;
+        /*border: solid 1px red;*/
     }
 
     #RegistrationBlock h2 {

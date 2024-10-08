@@ -16,14 +16,14 @@ function Content() {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    useEffect(() => {
-        // const token = localStorage.getItem("yandexToken");
-        const isAuth = localStorage.getItem("isYandexAuth") === "true";
-        //
-        if (isAuth) {
-            navigate('/shop')
-        }
-    }, []);
+    // useEffect(() => {
+    //     // const token = localStorage.getItem("yandexToken");
+    //     const isAuth = localStorage.getItem("isYandexAuth") === "true";
+    //     //
+    //     if (isAuth) {
+    //         navigate('/shop')
+    //     }
+    // }, []);
 
     // Initialize Yandex Auth button
     useEffect(() => {
@@ -51,11 +51,11 @@ function Content() {
 
         return (
             <>
-                <div className="Content" style={{height: '15vh', marginTop: '30px'}}>
+                <div className="Content" style={{marginTop: '30px'}}>
                     <img src={logo} id="LogoSite"/>
                     <h1 id="TitleSite">GOSTLINK</h1>
                 </div>
-                <div className="Content" style={{height: '5vh', marginBottom: '10px', marginTop: '10px'}}>
+                <div className="Content" style={{height: '5vh', marginBottom: '30px', marginTop: '10px'}}>
                     <h2 id="DescriptionSite">Самый быстрый в обитаемой вселенной!</h2>
                 </div>
                 <div className="Content ColumnContent" style={{alignItems: "flex-start", marginBottom: '20px'}}>
