@@ -25,29 +25,110 @@ const Pricing = () => {
 
     const pay = (price) => {
         const widget = new window.cp.CloudPayments();
-        widget.pay('charge',
-            {
-                publicId: `pk_f9271576545f4a2a5a96ef79140ae`,
-                description: 'Покупочка вот такая',
+        const receipt = {
+            Items: [
+                {
+                    label: 'Доступ к сервису gostlink.ru',
+                    price: price,
+                    quantity: 1.00,
+                    amount: price,
+                    vat: 20,
+                    method: 0,
+                    object: 0,
+                }
+            ],
+            taxationSystem: 0,
+            email: 'pk_f9271576545f4a2a5a96ef79140ae',
+            phone: '',
+            isBso: false,
+            amounts: {
+                electronic: price,
+                advancePayment: 0.00,
+                credit: 0.00,
+                provision: 0.00
+            }
+        };
+
+        const data = {
+            CloudPayments: {
+                CustomerReceipt: receipt,
+                recurrent: {
+                    interval: 'Day', // Month
+                    period: 1,
+                    customerReceipt: receipt
+                }
+            }
+        };
+
+        widget.charge({
+                publicId: 'pk_f9271576545f4a2a5a96ef79140ae',
+                description: 'Подписка на ежемесячный доступ к сервису gostlink.ru',
                 amount: price,
                 currency: 'RUB',
                 accountId: localStorage.getItem('email'),
                 invoiceId: localStorage.getItem('uid'),
-                skin: "modern",
-                data: {myProp: 'myProp value'}
+                data: data
             },
-            {
-                onSuccess: function (options) {
-                    console.log('Payment succeeded', options);
-                },
-                onFail: function (reason, options) {
-                    console.error('Payment failed', reason, options);
-                },
-                onComplete: function (paymentResult, options) {
-                    console.log('Payment completed', paymentResult, options);
+            function (options) { // success
+                // действие при успешной оплате
+            },
+            function (reason, options) { // fail
+                // действие при неуспешной оплате
+            });
+    };
+
+    const payYear = (price) => {
+        const widget = new window.cp.CloudPayments();
+        const receipt = {
+            Items: [
+                {
+                    label: 'Доступ к сервису gostlink.ru',
+                    price: price,
+                    quantity: 1.00,
+                    amount: price,
+                    vat: 20,
+                    method: 0,
+                    object: 0,
+                }
+            ],
+            taxationSystem: 0,
+            email: 'pk_f9271576545f4a2a5a96ef79140ae',
+            phone: '',
+            isBso: false,
+            amounts: {
+                electronic: price,
+                advancePayment: 0.00,
+                credit: 0.00,
+                provision: 0.00
+            }
+        };
+
+        const data = {
+            CloudPayments: {
+                CustomerReceipt: receipt,
+                recurrent: {
+                    interval: 'Month',
+                    period: 12,
+                    customerReceipt: receipt
                 }
             }
-        );
+        };
+
+        widget.charge({
+                publicId: 'pk_f9271576545f4a2a5a96ef79140ae',
+                description: 'Подписка на eжегодный платеж для доступа к сервису gostlink.ru',
+                amount: price,
+                currency: 'RUB',
+                accountId: localStorage.getItem('email'),
+                invoiceId: localStorage.getItem('uid'),
+                data: data
+            },
+            function (options) { // success
+                // действие при успешной оплате
+            },
+            function (reason, options) { // fail
+                // действие при неуспешной оплате
+            });
     };
 
 
@@ -241,7 +322,7 @@ const Pricing = () => {
                     </List>
 
                     <Button
-                        onClick={() => {pay(4740)}}
+                        onClick={() => {payYear(4740)}}
                         mt={4}
                         w={'full'}
                         bg={'green.400'}
