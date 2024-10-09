@@ -2,13 +2,13 @@ import {Box, Center, Text, Flex, Avatar, Stack, List, ListItem, ListIcon, Button
 import { useState, useEffect } from 'react';
 import { CheckIcon } from '@chakra-ui/icons'
 import { FaUser } from 'react-icons/fa';
+import DefaultProfilePhoto from './profile.svg';
 
 const Pricing = () => {
     const [imageExists, setImageExists] = useState(false);
     const photoUrl = localStorage.getItem('photoURL');
 
     useEffect(() => {
-        // Функция для проверки наличия изображения
         const checkImage = (url) => {
             const img = new Image();
             img.onload = () => setImageExists(true);
@@ -163,7 +163,11 @@ const Pricing = () => {
             >
                 <Box textAlign="right">
                     <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('email')}</Text>
-                    <Text color="white" fontSize={{ base: '18px', md: '24px' }}>Подписка до: хх.хх.хх</Text>
+                    { localStorage.getItem('subscriptionIsActive') === 'true' ? (
+                        <Text color="white" fontSize={{ base: '18px', md: '24px' }}>Подписка до: {localStorage.getItem('expirationDate')}</Text>
+                    ) : (
+                        <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('expirationDate')}</Text>
+                    )}
                 </Box>
 
                 <Flex
@@ -176,7 +180,7 @@ const Pricing = () => {
                     align="center"
                 >
                     {!imageExists ? (
-                        <FaUser size="60%" color="gray" />
+                        <img src={DefaultProfilePhoto} alt="Profile" borderRadius="full"/>
                     ) : (
                         <Avatar
                             src={photoUrl}

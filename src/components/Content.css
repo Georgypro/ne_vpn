@@ -17,7 +17,7 @@
 
 #TitleSite {
     font-size: 70px;
-    margin: 0 0 0 50px;
+    margin: 0 0 0 0;
     background: linear-gradient(to bottom, #ffffff, #444857);
     -webkit-background-clip: text;
     color: transparent;
@@ -180,7 +180,7 @@
 
     #TitleSite {
         font-size: 50px;
-        margin-left: 50px;
+        margin-right: 50px;
         background: linear-gradient(to bottom, #ffffff, #444857);
         -webkit-background-clip: text;
         color: transparent;

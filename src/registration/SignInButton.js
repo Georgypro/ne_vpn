@@ -53,14 +53,16 @@ const SignInButton = () => {
             .then(data => {
                 console.log(data);
                 if (data.success) {
+                    localStorage.setItem('expirationDate', data.expirationDate);
+                    localStorage.setItem('subscriptionIsActive', data.subscriptionIsActive);
                     navigate(`/shop`);
                 } else {
-                    // Handle failure notification
+                    navigate(`/`);
                 }
             })
             .catch(error => {
                 console.error('Fetch error:', error);
-                navigate(`/shop`);
+                navigate(`/`);
             });
     };
 

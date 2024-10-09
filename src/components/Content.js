@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import logo from "../logo.svg";
 import SignInButton from "../registration/SignInButton";
 import {useNavigate} from "react-router-dom";
+import Yandex from "../YandexLogo.svg";
+import YandexAuth from "../registration/YandexAuth";
 
 function Content() {
     const {t} = useTranslation();
@@ -16,44 +18,11 @@ function Content() {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    // useEffect(() => {
-    //     // const token = localStorage.getItem("yandexToken");
-    //     const isAuth = localStorage.getItem("isYandexAuth") === "true";
-    //     //
-    //     if (isAuth) {
-    //         navigate('/shop')
-    //     }
-    // }, []);
-
-    // Initialize Yandex Auth button
-    useEffect(() => {
-        window.YaAuthSuggest.init(
-            {
-                client_id: "7fd395f0a6944763b7ef425780b76e24",
-                response_type: "token",
-                redirect_uri: "https://gostlink.ru/yauth"
-            },
-            "https://gostlink.ru",
-            {
-                view: "button",
-                parentId: "buttonContainerId",
-                buttonSize: 'm',
-                buttonView: 'main',
-                buttonTheme: 'dark',
-                buttonBorderRadius: "22",
-                buttonIcon: 'ya',
-            }
-        )
-            .then(({handler}) => handler())
-            .then(data => console.log('Сообщение с токеном', data))
-            .catch(error => console.log('Обработка ошибки', error))
-    }, []);
-
         return (
             <>
                 <div className="Content" style={{marginTop: '30px'}}>
-                    <img src={logo} id="LogoSite"/>
                     <h1 id="TitleSite">GOSTLINK</h1>
+                    <img style={{marginLeft:'20px'}} src={logo} id="LogoSite"/>
                 </div>
                 <div className="Content" style={{height: '5vh', marginBottom: '30px', marginTop: '10px'}}>
                     <h2 id="DescriptionSite">Самый быстрый в обитаемой вселенной!</h2>
@@ -77,13 +46,20 @@ function Content() {
                     <div id="RegistrationBlock">
                         <h2>Войти с помощью:</h2>
                         <SignInButton/>
-                        <div style={{width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                        <div style={{
+                            width: '50%',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}>
                             <hr className='Line'/>
                             <p style={{margin: '10px'}}>или</p>
                             <hr style={{rotate: '180deg'}} className='Line'/>
                         </div>
 
-                        <div id="buttonContainerId" style={{margin: '10px'}}></div>
+                        <YandexAuth/>
+
                     </div>
                 </div>
             </>

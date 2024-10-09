@@ -75,15 +75,17 @@ function YAuth() {
                 console.log(data);
                 if (data.success) {
                     localStorage.setItem('isYandexAuth', "true");
-                    // window.close();
+                    localStorage.setItem('expirationDate', data.expirationDate);
+                    localStorage.setItem('subscriptionIsActive', data.subscriptionIsActive);
                     navigate('/shop')
                 } else {
-                    // Handle failure notification
+                    navigate(`/`);
                 }
             })
             .catch(error => {
                 console.error('Fetch error:', error);
                 // window.close();
+                navigate(`/`);
                 toast.error('Не удалось авторизоваться!')
             });
     }
