@@ -75,7 +75,6 @@ function ShopVMobile() {
             });
     };
 
-
     useEffect(() => {
         // Dynamically load CloudPayments widget script
         const script = document.createElement('script');

@@ -180,7 +180,7 @@ const Pricing = () => {
                     align="center"
                 >
                     {!imageExists ? (
-                        <img src={DefaultProfilePhoto} alt="Profile" borderRadius="full"/>
+                        <img src={DefaultProfilePhoto} alt="Profile"/>
                     ) : (
                         <Avatar
                             src={photoUrl}

@@ -59,15 +59,16 @@ function Profile() {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                    localStorage.setItem('expirationDate', data.expirationDate);
-                    localStorage.setItem('subscriptionIsActive', data.subscriptionIsActive);
+                    localStorage.setItem('expirationDate', data.userInfo.expirationDate);
+                    localStorage.setItem('subscriptionIsActive', data.userInfo.subscriptionIsActive);
+                    console.log(data)
                 } else {
                     navigate(`/`);
                 }
             })
             .catch(error => {
                 console.error('Fetch error:', error);
-                navigate(`/`);
+                // navigate(`/`);
             });
     };
 
@@ -92,6 +93,8 @@ function Profile() {
                             ) : (
                                 <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('expirationDate')}</Text>
                             )}
+                            <Text color="gray" fontStyle={"italic"} fontSize={{ base: '12px', md: '12px' }}>сменить аккаунт</Text>
+                            {/*TODO add home emoji*/}
                         </Box>
 
                         <Flex
@@ -104,7 +107,7 @@ function Profile() {
                             align="center"
                         >
                             {!imageExists ? (
-                                <img src={DefaultProfilePhoto} alt="Profile" borderRadius="full"/>
+                                <img src={DefaultProfilePhoto} alt="Profile"/>
                             ) : (
                                 <Avatar
                                     src={photoUrl}
@@ -115,8 +118,12 @@ function Profile() {
                             )}
                         </Flex>
                     </Flex>
-                    <Text>Тут будет список устройств</Text>
-                    <Text>Тут будет список устройств</Text>
+                    {/*TODO: Тут будет список устройств*/}
+                    {/*TODO: иконка типа устройства (эпл/android/win)*/}
+                    {/*TODO: имя устройства*/}
+                    Контрольная закупка устройств
+                    Отмена подписки
+                    <Text></Text>
                 </Center>
             </ChakraProvider>
         </div>
