@@ -1,0 +1,5 @@
+/* Custom styles for toast notifications */
+.custom-toast {
+    color: white;
+    background-color: #333333;
+}
