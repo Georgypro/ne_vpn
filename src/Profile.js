@@ -69,7 +69,7 @@ function Profile() {
                     setDeviceData(data.devices)
                     console.log(data)
                 } else {
-                    navigate(`/`);
+                    // navigate(`/`);
                 }
             })
             .catch(error => {
@@ -77,8 +77,50 @@ function Profile() {
                 // navigate(`/`);
             });
     };
+    const fetchUnblockDevice = (id, name) => {
 
-    // Function to get the platform icon
+        const requestData = {
+            uid: localStorage.getItem('uid'),
+            email: localStorage.getItem('email'),
+            deviceId: id,
+        };
+
+
+        fetch(`https://gostlink.ru/api/profile/detachDevice`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
+        })
+            .then(response => {
+                console.log(response);
+                return response.text();
+            })
+            .then(text => {
+                console.log(text);
+                if (text) {
+                    return JSON.parse(text);
+                }
+                return {};
+            })
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    localStorage.setItem('expirationDate', data.userInfo.expirationDate);
+                    localStorage.setItem('subscriptionIsActive', data.userInfo.subscriptionIsActive);
+                    setDeviceData(data.devices)
+                    console.log(data)
+                    toast.success(name + ' откреплен.')
+                } else {
+                    navigate(`/`);
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                navigate(`/`);
+            });
+    };
     const getPlatformIcon = (platform) => {
         switch (platform) {
             case 'android':
@@ -91,6 +133,15 @@ function Profile() {
                 return <FaGhost size={48} color="#222222" />;
         }
     };
+    function formatDateTime(isoString) {
+        const date = new Date(isoString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear()).slice(-2);
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${day}.${month}.${year} - ${minutes}:${hours}`;
+    }
 
 
     return (
@@ -143,7 +194,7 @@ function Profile() {
                         <div>
                         <ul>
                             {deviceData.map(device => (
-                                <li key={device.id} style={{borderBottom: 'none', marginBottom: '0'}} onClick={() => toast(device.id)}>
+                                <li key={device.id} style={{borderBottom: 'none', marginBottom: '0', color: 'transparent'}}>
                                     <Box
                                         bg={"white"}
                                         p={2}
@@ -153,8 +204,26 @@ function Profile() {
                                         textAlign="center"
                                         position="relative"
                                         w={'full'}
-                                        onClick={() => toast.error('ОТБЛАКИРОВКА УСТРОСТВА')}
                                     >
+                                        {device.deviceName === "" ? (
+                                            <Flex align="center" justify="center">
+                                                <Box position="absolute" left="15px">
+                                                    {getPlatformIcon(device.platform)}
+                                                </Box>
+                                                <Box ml={10} mr={10}>
+                                                    <Text fontSize="xl" fontWeight="bold" color="#222222" lineHeight={1} >
+                                                        Доступно новое устройство
+                                                    </Text>
+                                                    <Text fontSize="sm" fontStyle="italic" fontWeight="light" color="#666666" lineHeight={1.2} mt={1}>
+                                                        скачать приложение
+                                                    </Text>
+                                                </Box>
+                                                <Box position="absolute" right="15px">
+                                                    {/*<ImCross style={{color: '#222222', height: '38px', marginRight: '15px'}}*/}
+                                                    {/*         onClick={() => fetchUnblockDevice(device.id, device.deviceName)}/>*/}
+                                                </Box>
+                                            </Flex>
+                                        ) : (
                                             <Flex align="center" justify="center">
                                                 <Box position="absolute" left="15px">
                                                     {getPlatformIcon(device.platform)}
@@ -164,15 +233,15 @@ function Profile() {
                                                         {device.deviceName.length > 20 ? device.deviceName.slice(0, 17) + '...' : device.deviceName}
                                                     </Text>
                                                     <Text fontSize="sm" fontStyle="italic" fontWeight="light" color="#666666" lineHeight={1.2} mt={1}>
-                                                        {device.deviceId.slice(0, 10)} - {device.created}
+                                                        {device.deviceId.slice(0, 16)} - {formatDateTime(device.firstActivation)}
                                                     </Text>
                                                 </Box>
                                                 <Box position="absolute" right="15px">
                                                     <ImCross style={{color: '#222222', height: '38px', marginRight: '15px'}}
-                                                             onClick={() => toast('typa clear')}/>
+                                                             onClick={() => fetchUnblockDevice(device.id, device.deviceName)}/>
                                                 </Box>
                                             </Flex>
-                                            {/*{device.deviceId.slice(0, 10)} - {device.created}*/}
+                                        )}
                                     </Box>
                                 </li>
                             ))}

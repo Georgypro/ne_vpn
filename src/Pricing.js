@@ -132,23 +132,6 @@ const Pricing = () => {
     };
 
 
-    const monthIndex = new Date().getMonth();
-    const months = [
-        'январь',
-        'февраль',
-        'март',
-        'апрель',
-        'май',
-        'июнь',
-        'июль',
-        'август',
-        'сентябрь',
-        'октябрь',
-        'ноябрь',
-        'декабрь',
-    ];
-    const currentMonth = months[monthIndex];
-
 
     return (
         <Center py={9} flexDirection="column"
@@ -193,16 +176,13 @@ const Pricing = () => {
             </Flex>
 
             <Box
-                bg={useColorModeValue('green.400', 'gray.800')}
+                bg={useColorModeValue('white', 'white')}
                 p={2}
                 borderRadius="md"
                 mb={4}
                 textAlign="center"
                 w={'full'}
             >
-                <Text fontSize="xl" fontWeight="bold" color="white" lineHeight={0.8}>
-                    Только в этот {currentMonth}, скидки до 50%!
-                </Text>
             </Box>
 
             {/* Stack to align the other boxes in a row */}
@@ -222,7 +202,7 @@ const Pricing = () => {
                     align={'center'}>
                     <Text
                         fontSize={'sm'}
-                        fontWeight={500}
+                        fontWeight={900}
                         bg={useColorModeValue('green.100', 'green.900')}
                         p={0}
                         px={1}
@@ -230,11 +210,11 @@ const Pricing = () => {
                         rounded={'full'}>
                         Скидка 40%
                     </Text>
-                    <Text lineHeight={0.8}>Месячная подписка</Text>
+                    <Text fontWeight={900} lineHeight={0.8}>Месячная подписка</Text>
                     <Stack direction={'row'} align={'center'} justify={'center'} px={1}>
                         <Text
                             fontSize={'4xl'}
-                            fontWeight={800}
+                            fontWeight={900}
                             lineHeight={1.2}
                         >
                             470
@@ -246,9 +226,8 @@ const Pricing = () => {
                     </Text>
                 </Stack>
 
-
                 <Box bg={useColorModeValue('gray.50', 'gray.900')} px={3} py={4} >
-                    <List spacing={2} fontSize={'xs'} fontWeight={500}>
+                    <List spacing={2} fontSize={'sm'} fontWeight={900}>
                         <ListItem>
                                 <ListIcon as={CheckIcon} color="green.400" />
                                 ∞ GB/мес
@@ -290,7 +269,7 @@ const Pricing = () => {
                     align={'center'}>
                     <Text
                         fontSize={'sm'}
-                        fontWeight={500}
+                        fontWeight={900}
                         bg={useColorModeValue('yellow.100', 'yellow.900')}
                         p={0}
                         px={1}
@@ -298,25 +277,25 @@ const Pricing = () => {
                         rounded={'full'}>
                         Скидка 50%
                     </Text>
-                    <Text lineHeight={0.8}>Годовая подписка</Text>
+                    <Text fontWeight={900} lineHeight={0.8}>Годовая подписка</Text>
                     <Stack direction={'row'} align={'center'} justify={'center'} px={1}>
                         <Text
                             fontSize={'4xl'}
-                            fontWeight={800}
+                            fontWeight={900}
                             lineHeight={1.2}
                         >
                             395
                         </Text>
-                        <Text lineHeight={0.8}>₽/мес</Text>
+                        <Text fontWeight={600}  lineHeight={0.8}>₽/мес</Text>
                     </Stack>
-                    <Text fontSize={'md'} fontWeight={500} color={'darkgray'} lineHeight={0.2}>
+                    <Text fontSize={'md'} fontWeight={600} color={'darkgray'} lineHeight={0.2}>
                         4740 ₽/год
                     </Text>
                 </Stack>
 
 
                 <Box bg={useColorModeValue('gray.50', 'gray.900')} px={3} py={4} >
-                    <List spacing={2} fontSize={'xs'} fontWeight={500}>
+                    <List spacing={2} fontSize={'sm'} fontWeight={900}>
                         <ListItem><ListIcon as={CheckIcon} color="green.400" />∞ GB/мес</ListItem>
                         <ListItem ><ListIcon as={CheckIcon} color="green.400" />Безграничный доступ к иностранным сервисам</ListItem>
                         <ListItem><ListIcon as={CheckIcon} color="green.400" />Работают банковские приложения</ListItem>
