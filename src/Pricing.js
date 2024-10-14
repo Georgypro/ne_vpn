@@ -20,7 +20,7 @@ const Pricing = () => {
                 }
             ],
             taxationSystem: 0,
-            email: 'pk_f9271576545f4a2a5a96ef79140ae',
+            email: 'pk_4feb1ad8454338201a9cdf6850ce2',
             phone: '',
             isBso: false,
             amounts: {
@@ -43,7 +43,7 @@ const Pricing = () => {
         };
 
         widget.charge({
-                publicId: 'pk_f9271576545f4a2a5a96ef79140ae',
+                publicId: 'pk_4feb1ad8454338201a9cdf6850ce2',
                 description: 'Подписка на ежемесячный доступ к сервису gostlink.ru',
                 amount: price,
                 currency: 'RUB',
@@ -74,7 +74,7 @@ const Pricing = () => {
                 }
             ],
             taxationSystem: 0,
-            email: 'pk_f9271576545f4a2a5a96ef79140ae',
+            email: 'pk_4feb1ad8454338201a9cdf6850ce2',
             phone: '',
             isBso: false,
             amounts: {
@@ -97,7 +97,7 @@ const Pricing = () => {
         };
 
         widget.charge({
-                publicId: 'pk_f9271576545f4a2a5a96ef79140ae',
+                publicId: 'pk_4feb1ad8454338201a9cdf6850ce2',
                 description: 'Подписка на eжегодный платеж для доступа к сервису gostlink.ru',
                 amount: price,
                 currency: 'RUB',
