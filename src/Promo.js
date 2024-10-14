@@ -6,6 +6,7 @@ import {
     Center,
     Stack,
     Button,
+    UnorderedList, ListItem, Flex, Text,
     ChakraProvider, extendTheme,
 } from '@chakra-ui/react';
 import {useNavigate} from "react-router-dom";
@@ -14,6 +15,8 @@ import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import User from "./User";
 import { QRCodeCanvas } from 'qrcode.react';
+import { PiStarFourFill } from "react-icons/pi";
+import { BsStars } from "react-icons/bs";
 
 function Promo() {
 
@@ -145,6 +148,37 @@ function Promo() {
                             textAlign="center"
                             w={'full'}
                         >
+                            <Stack direction="column" spacing={4} width="100%" justifyContent="center" alignItems="center">
+                                <UnorderedList spacing={4} styleType="none" mt={4}>
+                                    <ListItem>
+                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1.1} >
+                                            <BsStars width="60px" height="60px" m={4} />
+                                            <Text>Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!</Text>
+                                        </Flex>
+                                    </ListItem>
+
+                                    <ListItem>
+                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1} height="60px">
+                                            <PiStarFourFill boxSize="60px" m={4} />
+                                            <Text>Поделись своей ссылкой-приглашением со знакомым в любом удобном формате</Text>
+                                        </Flex>
+                                    </ListItem>
+
+                                    <ListItem>
+                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1} height="60px">
+                                            <PiStarFourFill boxSize="60px" m={4} />
+                                            <Text>Когда он начнет пользоваться сервисом, ты автоматически получишь скидку на оплату подписки в 25%</Text>
+                                        </Flex>
+                                    </ListItem>
+
+                                    <ListItem>
+                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1} height="60px">
+                                            <PiStarFourFill boxSize="60px" m={4} />
+                                            <Text>Скидки от нескольких приглашенных складываются, время проведения акции не ограничено</Text>
+                                        </Flex>
+                                    </ListItem>
+                                </UnorderedList>
+
                             <Stack direction={{base: "column", md: "row"}} spacing={4} width="100%" justifyContent="center" alignContent="center">
 
                             <div
@@ -209,6 +243,7 @@ function Promo() {
                                         Скачать QR код
                                     </Button>
                                 </Stack>
+                            </Stack>
                         </Stack>
 
                         </Box>
