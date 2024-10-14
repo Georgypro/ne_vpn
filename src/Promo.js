@@ -6,7 +6,7 @@ import {
     Center,
     Stack,
     Button,
-    ChakraProvider,
+    ChakraProvider, extendTheme,
 } from '@chakra-ui/react';
 import {useNavigate} from "react-router-dom";
 import './css/custom-toast.css';
@@ -26,6 +26,41 @@ function Promo() {
                 console.error('Failed to copy: ', error);
             });
         toast.success("Скопировано в буфер обмена")
+    };
+    const handleShareQr = async (shareMessage, shareUrl) => {
+        try {
+            const canvas = document.querySelector('.qr-code > canvas');
+            const imageUrl = canvas.toDataURL('image/png'); // Convert canvas to image URL
+
+            if (navigator.share) {
+                await navigator.share({
+                    title: 'Поделиться',
+                    text: shareMessage,
+                    url: shareUrl,
+                    files: [new File([await fetch(imageUrl).then(r => r.blob())], 'gostlink_qr.png', { type: 'image/png' })],
+                });
+            } else {
+                toast.error('Ваше устройство не поддерживает функцию "Поделиться".');
+            }
+        } catch (error) {
+            toast.error('Ошибка при попытке поделиться:', error);
+        }
+    };
+
+    const handleShare = async (shareMessage, shareUrl) => {
+        try {
+            if (navigator.share) {
+                await navigator.share({
+                    title: 'Поделиться',
+                    text: shareMessage,
+                    url: shareUrl,
+                });
+            } else {
+                toast.error('Ваше устройство не поддерживает функцию "Поделиться".');
+            }
+        } catch (error) {
+            toast.error('Ошибка при попытке поделиться:', error);
+        }
     };
 
     useEffect(() => {
@@ -84,10 +119,17 @@ function Promo() {
             });
     };
 
+    const customTheme = extendTheme({
+        fonts: {
+            heading: "'Poiret One', sans-serif", // for headings
+            body: "'Poiret One', sans-serif",    // for body text
+        },
+    });
+
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <ToastContainer toastStyle={{color: '#ffffff', backgroundColor: '#333333'}}/>
-            <ChakraProvider>
+            <ChakraProvider theme={customTheme}>
                 <Center py={9} flexDirection="column"
                         maxW={"calc(2 * 330px + 2 * 16px)"}
                         w={'90%'}>
@@ -103,11 +145,11 @@ function Promo() {
                             textAlign="center"
                             w={'full'}
                         >
-                            <Stack direction="row" spacing={4} width="100%" justifyContent="center" alignContent="center">
+                            <Stack direction={{base: "column", md: "row"}} spacing={4} width="100%" justifyContent="center" alignContent="center">
 
                             <div
                                 className="qr-code"
-                                onClick={handleDownload}
+                                onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
                             >
                                 <QRCodeCanvas
                                     value={"https://gostlink.ru/?token=" + Refferal}
@@ -131,7 +173,7 @@ function Promo() {
 
                                 <Stack direction="column" m={1} mb={4} mr={4} spacing={0} width="100%" justifyContent="center" alignContent="center">
                                     <Button
-                                        onClick={() => {}}
+                                        onClick={() => {handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}}
                                         mt={4}
                                         w={'full'}
                                         bg={'#111821'}

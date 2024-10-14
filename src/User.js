@@ -31,12 +31,12 @@ function User() {
     return (
         <Flex width="100%" direction="row" justify="flex-end" mb="30px">
             <Box textAlign="right">
-                <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('email')}</Text>
+                <Text color="white" fontSize={{ base: '18px', md: '24px' }} onClick={() => navigate('/profile')}>{localStorage.getItem('email')}</Text>
                 { localStorage.getItem('subscriptionIsActive') === 'true' ? (
-                    <Text color="white" fontSize={{ base: '18px', md: '24px' }}>
+                    <Text color="white" fontSize={{ base: '18px', md: '24px' }} onClick={() => navigate('/profile')}>
                         Подписка до: {localStorage.getItem('expirationDate')}</Text>
                 ) : (
-                    <Text color="white" fontSize={{ base: '18px', md: '24px' }}>
+                    <Text color="white" fontSize={{ base: '18px', md: '24px' }} onClick={() => navigate('/profile')}>
                         {localStorage.getItem('expirationDate')}</Text>
                 )}
                 <Text color="lightgray" fontStyle={"italic"} textDecoration="underline" fontSize={{ base: '14px', md: '14px' }}
@@ -52,6 +52,7 @@ function User() {
                 mt="10px"
                 justify="center"
                 align="center"
+                onClick={() => navigate('/profile')}
             >
                 {!imageExists ? (
                     <img src={DefaultProfilePhoto} alt="Profile"/>
