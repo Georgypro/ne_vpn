@@ -7,6 +7,7 @@ import Background from "./components/Background";
 import YAuth from "./registration/YAuth";
 import ShopVMobile from "./ShopVMobile";
 import Profile from "./Profile";
+import Promo from "./Promo";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                   </div>
                   <Router>
                       <Routes>
+                          <Route path="/promo" element={<Promo/>}/>
                           <Route path="/profile" element={<Profile/>}/>
                           <Route path="/mobileShop" element={<ShopVMobile/>}/>
                           <Route path="/yauth" element={<YAuth/>}/>
