@@ -1,27 +1,9 @@
 import {Box, Center, Text, Flex, Avatar, Stack, List, ListItem, ListIcon, Button, useColorModeValue,} from '@chakra-ui/react'
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CheckIcon } from '@chakra-ui/icons'
-import { FaUser } from 'react-icons/fa';
-import DefaultProfilePhoto from './profile.svg';
+import User from "./User";
 
 const Pricing = () => {
-    const [imageExists, setImageExists] = useState(false);
-    const photoUrl = localStorage.getItem('photoURL');
-
-    useEffect(() => {
-        const checkImage = (url) => {
-            const img = new Image();
-            img.onload = () => setImageExists(true);
-            img.onerror = () => setImageExists(false);
-            img.src = url;
-        };
-
-        if (photoUrl) {
-            checkImage(photoUrl);
-        } else {
-            setImageExists(false);
-        }
-    }, [photoUrl]);
 
     const pay = (price) => {
         const widget = new window.cp.CloudPayments();
@@ -138,42 +120,7 @@ const Pricing = () => {
                 maxW={"calc(2 * 330px + 2 * 16px)"}
                 w={'90%'}>
 
-            <Flex
-                width="100%"
-                direction="row"
-                justify="flex-end"
-                mb="30px"
-            >
-                <Box textAlign="right">
-                    <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('email')}</Text>
-                    { localStorage.getItem('subscriptionIsActive') === 'true' ? (
-                        <Text color="white" fontSize={{ base: '18px', md: '24px' }}>Подписка до: {localStorage.getItem('expirationDate')}</Text>
-                    ) : (
-                        <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('expirationDate')}</Text>
-                    )}
-                </Box>
-
-                <Flex
-                    width={{base: '50px', md: '70px'}}
-                    height={{base: '50px', md: '70px'}}
-                    bg="white"
-                    borderRadius="full"
-                    ml="30px"
-                    justify="center"
-                    align="center"
-                >
-                    {!imageExists ? (
-                        <img src={DefaultProfilePhoto} alt="Profile"/>
-                    ) : (
-                        <Avatar
-                            src={photoUrl}
-                            width="90%"
-                            height="90%"
-                            borderRadius="full"
-                        />
-                    )}
-                </Flex>
-            </Flex>
+            <User/>
 
             <Box
                 bg={useColorModeValue('white', 'white')}

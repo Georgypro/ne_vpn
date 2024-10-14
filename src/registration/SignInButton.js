@@ -55,7 +55,14 @@ const SignInButton = () => {
                 if (data.success) {
                     localStorage.setItem('expirationDate', data.expirationDate);
                     localStorage.setItem('subscriptionIsActive', data.subscriptionIsActive);
-                    navigate(`/shop`);
+                    localStorage.setItem('isYandexAuth', "false");
+
+                    if (data.subscriptionIsActive === true){
+                        navigate(`/profile`);
+                    } else {
+                        navigate(`/shop`);
+                    }
+
                 } else {
                     navigate(`/`);
                 }

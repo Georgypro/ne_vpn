@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import './languages/i18n';
-import {Avatar, Box, Center, ChakraProvider, Flex, Text, useColorModeValue} from '@chakra-ui/react';
+import {Avatar, Box, Center, ChakraProvider, extendTheme, Flex, Text, useColorModeValue} from '@chakra-ui/react';
 import Pricing from "./Pricing";
 import {FaAndroid, FaApple, FaGhost, FaPlus, FaPlusCircle, FaUser, FaWindows} from "react-icons/fa";
 import {useNavigate} from "react-router-dom";
@@ -10,28 +10,12 @@ import './css/custom-toast.css';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {ImCross} from "react-icons/im";
+import User from "./User";
 
 function Profile() {
 
     const navigate = useNavigate();
-    const [imageExists, setImageExists] = useState(false);
-    const photoUrl = localStorage.getItem('photoURL');
     const [deviceData, setDeviceData] = useState([]);
-
-    useEffect(() => {
-        const checkImage = (url) => {
-            const img = new Image();
-            img.onload = () => setImageExists(true);
-            img.onerror = () => setImageExists(false);
-            img.src = url;
-        };
-
-        if (photoUrl) {
-            checkImage(photoUrl);
-        } else {
-            setImageExists(false);
-        }
-    }, [photoUrl]);
 
     useEffect(() => {
         const requestData = {
@@ -143,52 +127,22 @@ function Profile() {
         return `${day}.${month}.${year} - ${minutes}:${hours}`;
     }
 
+    const customTheme = extendTheme({
+        fonts: {
+            heading: "'Poiret One', sans-serif", // for headings
+            body: "'Poiret One', sans-serif",    // for body text
+        },
+    });
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <ToastContainer toastStyle={{color: '#ffffff', backgroundColor: '#333333'}}/>
-            <ChakraProvider>
+            <ChakraProvider theme={customTheme}>
                 <Center py={9} flexDirection="column"
                         maxW={"calc(2 * 330px + 2 * 16px)"}
                         w={'90%'}>
 
-                    <Flex
-                        width="100%"
-                        direction="row"
-                        justify="flex-end"
-                        mb="30px"
-                    >
-                        <Box textAlign="right">
-                            <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('email')}</Text>
-                            { localStorage.getItem('subscriptionIsActive') === 'true' ? (
-                                <Text color="white" fontSize={{ base: '18px', md: '24px' }}>Подписка до: {localStorage.getItem('expirationDate')}</Text>
-                            ) : (
-                                <Text color="white" fontSize={{ base: '18px', md: '24px' }}>{localStorage.getItem('expirationDate')}</Text>
-                            )}
-                            <Text color="gray" fontStyle={"italic"} textDecoration="underline" fontSize={{ base: '12px', md: '12px' }} onClick={() => navigate('/')}>сменить аккаунт</Text>
-                        </Box>
-
-                        <Flex
-                            width={{base: '50px', md: '70px'}}
-                            height={{base: '50px', md: '70px'}}
-                            bg="white"
-                            borderRadius="full"
-                            ml="30px"
-                            justify="center"
-                            align="center"
-                        >
-                            {!imageExists ? (
-                                <img src={DefaultProfilePhoto} alt="Profile"/>
-                            ) : (
-                                <Avatar
-                                    src={photoUrl}
-                                    width="90%"
-                                    height="90%"
-                                    borderRadius="full"
-                                />
-                            )}
-                        </Flex>
-                    </Flex>
+                    <User/>
 
                     {deviceData ? (
                         <div>
