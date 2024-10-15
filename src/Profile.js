@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import './css/button.css'
 import './languages/i18n';
 import { FaAndroid, FaApple, FaGhost, FaPlus, FaWindows } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
@@ -9,6 +10,7 @@ import './css/custom-toast.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import User from './User';
+import {color} from "framer-motion";
 
 function Profile() {
     const navigate = useNavigate();
@@ -160,7 +162,14 @@ function Profile() {
                         </div>
                     </div>
                 ) : (
-                    <span>Нет активных устройств</span>
+                    <div style={{color:'black', alignItems:'center', display: 'flex', flexDirection: 'column', backgroundColor: 'white', padding: '20px', maxWidth: '700px', margin: 'auto', borderRadius: '20px'}}>
+                        <span >Нет активных устройств</span> <br/>
+                        <button
+                            className='button_dark'
+                            onClick={() => {navigate('/shop')}}>
+                            Перейти в магазин
+                        </button>
+                    </div>
                 )}
             </div>
         </div>
