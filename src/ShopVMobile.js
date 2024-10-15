@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import './languages/i18n';
+import { ChakraProvider } from '@chakra-ui/react';
 import Pricing from "./Pricing";
 import {useNavigate} from "react-router-dom";
 
@@ -90,7 +91,9 @@ function ShopVMobile() {
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             { isValues ? (
+                <ChakraProvider>
                     <Pricing/>
+                </ChakraProvider>
             ) : (
                 <h1>Loading...</h1>
             )}

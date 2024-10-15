@@ -1,4 +1,6 @@
+import {Box, Center, Text, Flex, Avatar, Stack, List, ListItem, ListIcon, Button, useColorModeValue,} from '@chakra-ui/react'
 import React, { useState, useEffect } from 'react';
+import { CheckIcon } from '@chakra-ui/icons'
 import User from "./User";
 
 const Pricing = () => {
@@ -18,7 +20,7 @@ const Pricing = () => {
                 }
             ],
             taxationSystem: 0,
-            email: 'pk_4a8b35334f78ae1f4ca1dbd3650c4',
+            email: 'pk_4feb1ad8454338201a9cdf6850ce2',
             phone: '',
             isBso: false,
             amounts: {
@@ -33,7 +35,7 @@ const Pricing = () => {
             CloudPayments: {
                 CustomerReceipt: receipt,
                 recurrent: {
-                    interval: 'Day',
+                    interval: 'Day', // Month
                     period: 1,
                     customerReceipt: receipt
                 }
@@ -41,7 +43,7 @@ const Pricing = () => {
         };
 
         widget.charge({
-                publicId: 'pk_4a8b35334f78ae1f4ca1dbd3650c4',
+                publicId: 'pk_4feb1ad8454338201a9cdf6850ce2',
                 description: 'Подписка на ежемесячный доступ к сервису gostlink.ru',
                 amount: price,
                 currency: 'RUB',
@@ -49,11 +51,11 @@ const Pricing = () => {
                 invoiceId: localStorage.getItem('uid'),
                 data: data
             },
-            function (options) {
-                // success handler
+            function (options) { // success
+                // действие при успешной оплате
             },
-            function (reason, options) {
-                // fail handler
+            function (reason, options) { // fail
+                // действие при неуспешной оплате
             });
     };
 
@@ -72,7 +74,7 @@ const Pricing = () => {
                 }
             ],
             taxationSystem: 0,
-            email: 'pk_4a8b35334f78ae1f4ca1dbd3650c4',
+            email: 'pk_4feb1ad8454338201a9cdf6850ce2',
             phone: '',
             isBso: false,
             amounts: {
@@ -87,15 +89,15 @@ const Pricing = () => {
             CloudPayments: {
                 CustomerReceipt: receipt,
                 recurrent: {
-                    interval: 'Day',
-                    period: 1,
+                    interval: 'Month',
+                    period: 12,
                     customerReceipt: receipt
                 }
             }
         };
 
         widget.charge({
-                publicId: 'pk_4a8b35334f78ae1f4ca1dbd3650c4',
+                publicId: 'pk_4feb1ad8454338201a9cdf6850ce2',
                 description: 'Подписка на eжегодный платеж для доступа к сервису gostlink.ru',
                 amount: price,
                 currency: 'RUB',
@@ -103,69 +105,235 @@ const Pricing = () => {
                 invoiceId: localStorage.getItem('uid'),
                 data: data
             },
-            function (options) {
-                // success handler
+            function (options) { // success
+                // действие при успешной оплате
             },
-            function (reason, options) {
-                // fail handler
+            function (reason, options) { // fail
+                // действие при неуспешной оплате
             });
     };
 
+
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', maxWidth: '700px', margin: 'auto' }}>
-            <User />
+        <Center py={9} flexDirection="column"
+                maxW={"calc(2 * 330px + 2 * 16px)"}
+                w={'90%'}>
 
-            <div style={{ width: '100%', backgroundColor: '#fff', padding: '10px', textAlign: 'center', marginBottom: '20px' }}></div>
+            <User/>
 
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '20px' }}>
-                <div style={{ width: '330px', backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
-                    <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f0f4f7', color: '#333' }}>
-                        <span style={{ backgroundColor: '#e6f4ea', color: '#2f855a', padding: '5px', borderRadius: '10px', fontWeight: 'bold' }}>Скидка 40%</span>
-                        <h3 style={{ margin: '10px 0', fontWeight: 'bold' }}>Месячная подписка</h3>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px' }}>
-                            <span style={{ fontSize: '36px', fontWeight: 'bold' }}>470</span>
-                            <span style={{ fontWeight: 'bold', fontSize: '16px' }}>₽/мес</span>
-                        </div>
-                        <div style={{ textDecoration: 'line-through', color: 'darkgray', fontSize: '14px' }}>790 ₽/мес</div>
-                    </div>
-                    <div style={{ padding: '20px', backgroundColor: '#f9fafb' }}>
-                        <ul style={{ listStyle: 'none', paddingLeft: '0', marginBottom: '20px' }}>
-                            <li>∞ GB/мес</li>
-                            <li>Безграничный доступ к иностранным сервисам</li>
-                            <li>Работают банковские приложения</li>
-                            <li>Без ограничений скорости</li>
-                            <li>Без рекламы</li>
-                            <li>Подключение с двух устройств</li>
-                        </ul>
-                        <button onClick={() => pay(470)} style={{ width: '100%', padding: '10px', backgroundColor: '#48bb78', color: 'white', borderRadius: '10px', cursor: 'pointer' }}>Выбрать</button>
-                    </div>
-                </div>
+            <Box
+                bg={useColorModeValue('white', 'white')}
+                p={2}
+                borderRadius="md"
+                mb={4}
+                textAlign="center"
+                w={'full'}
+            >
+            </Box>
 
-                <div style={{ width: '330px', backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
-                    <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f0f4f7', color: '#333' }}>
-                        <span style={{ backgroundColor: '#fefcbf', color: '#d69e2e', padding: '5px', borderRadius: '10px', fontWeight: 'bold' }}>Скидка 50%</span>
-                        <h3 style={{ margin: '10px 0', fontWeight: 'bold' }}>Годовая подписка</h3>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px' }}>
-                            <span style={{ fontSize: '36px', fontWeight: 'bold' }}>395</span>
-                            <span style={{ fontWeight: 'bold', fontSize: '16px' }}>₽/мес</span>
-                        </div>
-                        <div style={{ color: 'darkgray', fontSize: '14px' }}>4740 ₽/год</div>
-                    </div>
-                    <div style={{ padding: '20px', backgroundColor: '#f9fafb' }}>
-                        <ul style={{ listStyle: 'none', paddingLeft: '0', marginBottom: '20px' }}>
-                            <li>∞ GB/мес</li>
-                            <li>Безграничный доступ к иностранным сервисам</li>
-                            <li>Работают банковские приложения</li>
-                            <li>Без ограничений скорости</li>
-                            <li>Без рекламы</li>
-                            <li>Подключение с 3 устройств</li>
-                        </ul>
-                        <button onClick={() => payYear(630)} style={{ width: '100%', padding: '10px', backgroundColor: '#48bb78', color: 'white', borderRadius: '10px', cursor: 'pointer' }}>Выбрать</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+            {/* Stack to align the other boxes in a row */}
+            <Stack direction={{base: "column", md: "row"}} spacing={4} width="100%" justifyContent="center" alignContent="center">
+            <Box
+                maxW={{base: "500px", md: "330px"}}
+                w={'full'}
+                margin="auto"
+                bg={useColorModeValue('white', 'gray.800')}
+                boxShadow={'2xl'}
+                rounded={'md'}
+                overflow={'hidden'}>
+                <Stack
+                    textAlign={'center'}
+                    p={2}
+                    color={useColorModeValue('gray.800', 'white')}
+                    align={'center'}>
+                    <Text
+                        fontSize={'sm'}
+                        fontWeight={900}
+                        bg={useColorModeValue('green.100', 'green.900')}
+                        p={0}
+                        px={1}
+                        color={'green.600'}
+                        rounded={'full'}>
+                        Скидка 40%
+                    </Text>
+                    <Text fontWeight={900} lineHeight={0.8}>Месячная подписка</Text>
+                    <Stack direction={'row'} align={'center'} justify={'center'} px={1}>
+                        <Text
+                            fontSize={'4xl'}
+                            fontWeight={900}
+                            lineHeight={1.2}
+                        >
+                            470
+                        </Text>
+                        <Text fontWeight={600}  lineHeight={0.8}>₽/мес</Text>
+                    </Stack>
+                    <Text fontSize={'md'} fontWeight={600} textDecoration="line-through" color={'darkgray'} lineHeight={0.2}>
+                        790 ₽/мес
+                    </Text>
+                </Stack>
+
+                <Box bg={useColorModeValue('gray.50', 'gray.900')} px={3} py={4} >
+                    <List spacing={2} fontSize={'sm'} fontWeight={900}>
+                        <ListItem>
+                                <ListIcon as={CheckIcon} color="green.400" />
+                                ∞ GB/мес
+                        </ListItem>
+                        <ListItem ><ListIcon as={CheckIcon} color="green.400" />Безграничный доступ к иностранным сервисам</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Работают банковские приложения</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Без ограничений скорости</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Без рекламы</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Подключение с двух устройств</ListItem>
+                    </List>
+
+                    <Button
+                        onClick={() => {pay(470)}}
+                        mt={4}
+                        w={'full'}
+                        bg={'green.400'}
+                        color={'white'}
+                        rounded={'xl'}
+                        boxShadow={'0 5px 20px 0px rgb(72 187 120 / 43%)'}
+                        _hover={{bg: 'green.500',}}
+                        _focus={{bg: 'green.500',}}>
+                        Выбрать
+                    </Button>
+                </Box>
+            </Box>
+
+            <Box
+                maxW={{base: "500px", md: "330px"}}
+                w={'full'}
+                margin="auto"
+                bg={useColorModeValue('white', 'gray.800')}
+                boxShadow={'2xl'}
+                rounded={'md'}
+                overflow={'hidden'}>
+                <Stack
+                    textAlign={'center'}
+                    p={2}
+                    color={useColorModeValue('gray.800', 'white')}
+                    align={'center'}>
+                    <Text
+                        fontSize={'sm'}
+                        fontWeight={900}
+                        bg={useColorModeValue('yellow.100', 'yellow.900')}
+                        p={0}
+                        px={1}
+                        color={'yellow.600'}
+                        rounded={'full'}>
+                        Скидка 50%
+                    </Text>
+                    <Text fontWeight={900} lineHeight={0.8}>Годовая подписка</Text>
+                    <Stack direction={'row'} align={'center'} justify={'center'} px={1}>
+                        <Text
+                            fontSize={'4xl'}
+                            fontWeight={900}
+                            lineHeight={1.2}
+                        >
+                            395
+                        </Text>
+                        <Text fontWeight={600}  lineHeight={0.8}>₽/мес</Text>
+                    </Stack>
+                    <Text fontSize={'md'} fontWeight={600} color={'darkgray'} lineHeight={0.2}>
+                        4740 ₽/год
+                    </Text>
+                </Stack>
+
+
+                <Box bg={useColorModeValue('gray.50', 'gray.900')} px={3} py={4} >
+                    <List spacing={2} fontSize={'sm'} fontWeight={900}>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />∞ GB/мес</ListItem>
+                        <ListItem ><ListIcon as={CheckIcon} color="green.400" />Безграничный доступ к иностранным сервисам</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Работают банковские приложения</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Без ограничений скорости</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Без рекламы</ListItem>
+                        <ListItem><ListIcon as={CheckIcon} color="green.400" />Подключение с трех устройств</ListItem>
+                    </List>
+
+                    <Button
+                        onClick={() => {payYear(4740)}}
+                        mt={4}
+                        w={'full'}
+                        bg={'green.400'}
+                        color={'white'}
+                        rounded={'xl'}
+                        boxShadow={'0 5px 20px 0px rgb(72 187 120 / 43%)'}
+                        _hover={{bg: 'green.500',}}
+                        _focus={{bg: 'green.500',}}>
+                        Выбрать
+                    </Button>
+                </Box>
+            </Box>
+
+            {/*<Box*/}
+            {/*    maxW={{base: "500px", md: "330px"}}*/}
+            {/*    w={'full'}*/}
+            {/*    margin="auto"*/}
+            {/*    bg={useColorModeValue('white', 'gray.800')}*/}
+            {/*    boxShadow={'2xl'}*/}
+            {/*    rounded={'md'}*/}
+            {/*    overflow={'hidden'}>*/}
+            {/*    <Stack*/}
+            {/*        textAlign={'center'}*/}
+            {/*        p={2}*/}
+            {/*        color={useColorModeValue('gray.800', 'white')}*/}
+            {/*        align={'center'}>*/}
+            {/*        <Text*/}
+            {/*            fontSize={'sm'}*/}
+            {/*            fontWeight={500}*/}
+            {/*            bg={useColorModeValue('orange.100', 'orange.900')}*/}
+            {/*            p={0}*/}
+            {/*            px={1}*/}
+            {/*            color={'orange.600'}*/}
+            {/*            rounded={'full'}>*/}
+            {/*            Скидка 65%*/}
+            {/*        </Text>*/}
+            {/*        <Text lineHeight={0.8}>Подписка на 2 года</Text>*/}
+            {/*        <Stack direction={'row'} align={'center'} justify={'center'} px={1}>*/}
+            {/*            <Text*/}
+            {/*                fontSize={'4xl'}*/}
+            {/*                fontWeight={800}*/}
+            {/*                lineHeight={1.2}*/}
+            {/*            >*/}
+            {/*                275*/}
+            {/*            </Text>*/}
+            {/*            <Text lineHeight={0.8}>₽/мес</Text>*/}
+            {/*        </Stack>*/}
+            {/*        <Text fontSize={'md'} fontWeight={500} color={'darkgray'} lineHeight={0.2}>*/}
+            {/*            3300 ₽/год*/}
+            {/*        </Text>*/}
+            {/*    </Stack>*/}
+
+
+            {/*    <Box bg={useColorModeValue('gray.50', 'gray.900')} px={3} py={4} >*/}
+            {/*        <List spacing={2} fontSize={'xs'} fontWeight={500}>*/}
+            {/*            <ListItem><ListIcon as={CheckIcon} color="green.400" />∞ GB/мес</ListItem>*/}
+            {/*            <ListItem ><ListIcon as={CheckIcon} color="green.400" />Безграничный доступ к иностранным сервисам</ListItem>*/}
+            {/*            <ListItem><ListIcon as={CheckIcon} color="green.400" />Работают банковские приложения</ListItem>*/}
+            {/*            <ListItem><ListIcon as={CheckIcon} color="green.400" />Без ограничений скорости</ListItem>*/}
+            {/*            <ListItem><ListIcon as={CheckIcon} color="green.400" />Без рекламы</ListItem>*/}
+            {/*            <ListItem><ListIcon as={CheckIcon} color="green.400" />Подключение с пяти устройств</ListItem>*/}
+            {/*        </List>*/}
+
+            {/*        <Button*/}
+            {/*            onClick={() => {pay(6600)}}*/}
+            {/*            mt={4}*/}
+            {/*            w={'full'}*/}
+            {/*            bg={'green.400'}*/}
+            {/*            color={'white'}*/}
+            {/*            rounded={'xl'}*/}
+            {/*            boxShadow={'0 5px 20px 0px rgb(72 187 120 / 43%)'}*/}
+            {/*            _hover={{bg: 'green.500',}}*/}
+            {/*            _focus={{bg: 'green.500',}}*/}
+            {/*        >*/}
+            {/*            Выбрать*/}
+            {/*        </Button>*/}
+            {/*    </Box>*/}
+            {/*</Box>*/}
+            </Stack>
+        </Center>
+    )
 }
 
 export default Pricing;
