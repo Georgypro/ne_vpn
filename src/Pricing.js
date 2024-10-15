@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import User from "./User";
+import {BsStars} from "react-icons/bs";
 
 const Pricing = () => {
 
@@ -33,7 +34,7 @@ const Pricing = () => {
             CloudPayments: {
                 CustomerReceipt: receipt,
                 recurrent: {
-                    interval: 'Day',
+                    interval: 'Month',
                     period: 1,
                     customerReceipt: receipt
                 }
@@ -87,7 +88,7 @@ const Pricing = () => {
             CloudPayments: {
                 CustomerReceipt: receipt,
                 recurrent: {
-                    interval: 'Day',
+                    interval: 'Month',
                     period: 1,
                     customerReceipt: receipt
                 }
@@ -96,7 +97,7 @@ const Pricing = () => {
 
         widget.charge({
                 publicId: 'pk_4a8b35334f78ae1f4ca1dbd3650c4',
-                description: 'Подписка на eжегодный платеж для доступа к сервису gostlink.ru',
+                description: 'Подписка на ежемесячный доступ к сервису gostlink.ru',
                 amount: price,
                 currency: 'RUB',
                 accountId: localStorage.getItem('email'),
@@ -121,46 +122,95 @@ const Pricing = () => {
                 <div style={{ width: '330px', backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
                     <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f0f4f7', color: '#333' }}>
                         <span style={{ backgroundColor: '#e6f4ea', color: '#2f855a', padding: '5px', borderRadius: '10px', fontWeight: 'bold' }}>Скидка 40%</span>
-                        <h3 style={{ margin: '10px 0', fontWeight: 'bold' }}>Месячная подписка</h3>
+                        <h3 style={{ margin: '10px 0', fontWeight: 'bold' }}>Подписка на 2 устройства</h3>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px' }}>
-                            <span style={{ fontSize: '36px', fontWeight: 'bold' }}>470</span>
+                            <span style={{ fontSize: '36px', fontWeight: 'bold' }}>299</span>
                             <span style={{ fontWeight: 'bold', fontSize: '16px' }}>₽/мес</span>
                         </div>
-                        <div style={{ textDecoration: 'line-through', color: 'darkgray', fontSize: '14px' }}>790 ₽/мес</div>
+                        <div style={{ textDecoration: 'line-through', color: 'darkgray', fontSize: '14px' }}>498 ₽/мес</div>
                     </div>
-                    <div style={{ padding: '20px', backgroundColor: '#f9fafb' }}>
-                        <ul style={{ listStyle: 'none', paddingLeft: '0', marginBottom: '20px' }}>
-                            <li>∞ GB/мес</li>
-                            <li>Безграничный доступ к иностранным сервисам</li>
-                            <li>Работают банковские приложения</li>
-                            <li>Без ограничений скорости</li>
-                            <li>Без рекламы</li>
-                            <li>Подключение с двух устройств</li>
-                        </ul>
-                        <button onClick={() => pay(470)} style={{ width: '100%', padding: '10px', backgroundColor: '#48bb78', color: 'white', borderRadius: '10px', cursor: 'pointer' }}>Выбрать</button>
+                    <div style={{padding: '20px', backgroundColor: '#f9fafb', color: 'black'}}>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> ∞ GB/мес
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Безграничный доступ к иностранным сервисам
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Работают банки
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Без ограничений скорости
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Без рекламы
+                        </span>
+
+
+                        <button onClick={() => pay(470)} style={{
+                            width: '100%',
+                            padding: '10px',
+                            backgroundColor: '#48bb78',
+                            color: 'white',
+                            borderRadius: '10px',
+                            cursor: 'pointer'
+                        }}>Выбрать
+                        </button>
                     </div>
                 </div>
 
-                <div style={{ width: '330px', backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
-                    <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f0f4f7', color: '#333' }}>
-                        <span style={{ backgroundColor: '#fefcbf', color: '#d69e2e', padding: '5px', borderRadius: '10px', fontWeight: 'bold' }}>Скидка 50%</span>
-                        <h3 style={{ margin: '10px 0', fontWeight: 'bold' }}>Годовая подписка</h3>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px' }}>
-                            <span style={{ fontSize: '36px', fontWeight: 'bold' }}>395</span>
-                            <span style={{ fontWeight: 'bold', fontSize: '16px' }}>₽/мес</span>
+                <div style={{
+                    width: '330px',
+                    backgroundColor: '#fff',
+                    borderRadius: '10px',
+                    boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
+                    overflow: 'hidden'
+                }}>
+                    <div style={{textAlign: 'center', padding: '20px', backgroundColor: '#f0f4f7', color: '#333'}}>
+                        <span style={{
+                            backgroundColor: '#fefcbf',
+                            color: '#d69e2e',
+                            padding: '5px',
+                            borderRadius: '10px',
+                            fontWeight: 'bold'
+                        }}>Скидка 50%</span>
+                        <h3 style={{margin: '10px 0', fontWeight: 'bold'}}>Подписка на 3 устройства</h3>
+                        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px'}}>
+                            <span style={{fontSize: '36px', fontWeight: 'bold'}}>399</span>
+                            <span style={{fontWeight: 'bold', fontSize: '16px'}}>₽/мес</span>
                         </div>
-                        <div style={{ color: 'darkgray', fontSize: '14px' }}>4740 ₽/год</div>
+                        <div style={{ textDecoration: 'line-through', color: 'darkgray', fontSize: '14px' }}>799 ₽/мес</div>
                     </div>
-                    <div style={{ padding: '20px', backgroundColor: '#f9fafb' }}>
-                        <ul style={{ listStyle: 'none', paddingLeft: '0', marginBottom: '20px' }}>
-                            <li>∞ GB/мес</li>
-                            <li>Безграничный доступ к иностранным сервисам</li>
-                            <li>Работают банковские приложения</li>
-                            <li>Без ограничений скорости</li>
-                            <li>Без рекламы</li>
-                            <li>Подключение с 3 устройств</li>
-                        </ul>
-                        <button onClick={() => payYear(630)} style={{ width: '100%', padding: '10px', backgroundColor: '#48bb78', color: 'white', borderRadius: '10px', cursor: 'pointer' }}>Выбрать</button>
+                    <div style={{ padding: '20px', backgroundColor: '#f9fafb', color: 'black' }}>
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> ∞ GB/мес
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Безграничный доступ к иностранным сервисам
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Работают банки
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Без ограничений скорости
+                        </span> <br/>
+
+                        <span style={{marginRight: '5px', fontSize: '20px'}}>
+                          <BsStars/> Без рекламы
+                        </span>
+                        <button onClick={() => payYear(630)} style={{
+                            width: '100%',
+                            padding: '10px',
+                            backgroundColor: '#48bb78',
+                            color: 'white', borderRadius: '10px', cursor: 'pointer' }}>Выбрать</button>
                     </div>
                 </div>
             </div>
