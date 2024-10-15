@@ -52,10 +52,42 @@ const Pricing = () => {
                 data: data
             },
             function (options) {
-                // success handler
+                if (!window.kmpJsBridge) {
+                    console.warn("kmpJsBridge not found. Doing nothing.");
+                    return;
+                }
+                const data = {
+                    success: true,
+                    options: options,
+                    reason: 'no_reason'
+                };
+                window.kmpJsBridge.callNative(
+                    "pay",
+                    JSON.stringify(data),
+                    function (data) {
+                        document.getElementById("subtitle").innerText = data;
+                        console.log("Response from Native: " + data);
+                    }
+                );
             },
             function (reason, options) {
-                // fail handler
+                if (!window.kmpJsBridge) {
+                    console.warn("kmpJsBridge not found. Doing nothing.");
+                    return;
+                }
+                const data = {
+                    success: true,
+                    options: options,
+                    reason: reason
+                };
+                window.kmpJsBridge.callNative(
+                    "pay",
+                    JSON.stringify(data),
+                    function (data) {
+                        document.getElementById("subtitle").innerText = data;
+                        console.log("Response from Native: " + data);
+                    }
+                );
             });
     };
 
@@ -106,10 +138,43 @@ const Pricing = () => {
                 data: data
             },
             function (options) {
-                // success handler
+                if (!window.kmpJsBridge) {
+                    console.warn("kmpJsBridge not found. Doing nothing.");
+                    return;
+                }
+                const data = {
+                    success: true,
+                    options: options,
+                    reason: 'no_reason'
+                };
+                window.kmpJsBridge.callNative(
+                    "pay",
+                    JSON.stringify(data),
+                    function (data) {
+                        document.getElementById("subtitle").innerText = data;
+                        console.log("Response from Native: " + data);
+                    }
+                );
+
             },
             function (reason, options) {
-                // fail handler
+                if (!window.kmpJsBridge) {
+                    console.warn("kmpJsBridge not found. Doing nothing.");
+                    return;
+                }
+                const data = {
+                    success: true,
+                    options: options,
+                    reason: reason
+                };
+                window.kmpJsBridge.callNative(
+                    "pay",
+                    JSON.stringify(data),
+                    function (data) {
+                        document.getElementById("subtitle").innerText = data;
+                        console.log("Response from Native: " + data);
+                    }
+                );
             });
     };
 
@@ -133,7 +198,7 @@ const Pricing = () => {
                         <span className="feature"><BsStars/> Работают банки</span><br/>
                         <span className="feature"><BsStars/> Без ограничений скорости</span><br/>
                         <span className="feature"><BsStars/> Без рекламы</span>
-                        <button onClick={() => pay(470)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
+                        <button onClick={() => pay(299)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
                     </div>
                 </div>
 
@@ -153,7 +218,7 @@ const Pricing = () => {
                         <span className="feature"><BsStars/> Работают банки</span> <br/>
                         <span className="feature"><BsStars/> Без ограничений скорости</span> <br/>
                         <span className="feature"><BsStars/> Без рекламы</span>
-                        <button onClick={() => payYear(630)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
+                        <button onClick={() => payYear(399)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
                     </div>
                 </div>
             </div>

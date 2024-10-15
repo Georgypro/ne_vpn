@@ -15,11 +15,6 @@ function ShopVMobile() {
         const photoURL = queryParams.get('photoURL');
         const providerId = queryParams.get('providerId');
 
-        // console.log(email);
-        // console.log(uid);
-        // console.log(photoURL);
-        // console.log(providerId);
-
         localStorage.setItem('uid', uid);
         localStorage.setItem('email', email);
         localStorage.setItem('photoURL', photoURL);

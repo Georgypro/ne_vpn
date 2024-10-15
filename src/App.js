@@ -8,6 +8,7 @@ import YAuth from "./registration/YAuth";
 import ShopVMobile from "./ShopVMobile";
 import Profile from "./Profile";
 import Promo from "./Promo";
+import YAuthMobile from "./registration/YAuthMobile";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                           <Route path="/profile" element={<Profile/>}/>
                           <Route path="/mobileShop" element={<ShopVMobile/>}/>
                           <Route path="/yauth" element={<YAuth/>}/>
+                          <Route path="/yauth-mobile" element={<YAuthMobile/>}/>
                           <Route path="/shop" element={<Shop/>}/>
                           <Route path="" element={<StartPage/>}/>
                           <Route path="/" element={<StartPage/>}/>
