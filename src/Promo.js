@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import './languages/i18n';
-import {
-    Box,
-    Center,
-    Stack,
-    Button,
-    UnorderedList, ListItem, Flex, Text,
-    ChakraProvider, extendTheme,
-} from '@chakra-ui/react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './css/custom-toast.css';
-import {toast, ToastContainer} from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import User from "./User";
 import { QRCodeCanvas } from 'qrcode.react';
@@ -28,12 +20,13 @@ function Promo() {
             .catch((error) => {
                 console.error('Failed to copy: ', error);
             });
-        toast.success("Скопировано в буфер обмена")
+        toast.success("Скопировано в буфер обмена");
     };
+
     const handleShareQr = async (shareMessage, shareUrl) => {
         try {
             const canvas = document.querySelector('.qr-code > canvas');
-            const imageUrl = canvas.toDataURL('image/png'); // Convert canvas to image URL
+            const imageUrl = canvas.toDataURL('image/png');
 
             if (navigator.share) {
                 await navigator.share({
@@ -86,7 +79,6 @@ function Promo() {
     };
 
     const fetchPromo = (requestData) => {
-
         fetch(`https://gostlink.ru/api/profile/getReferralCode`, {
             method: 'POST',
             headers: {
@@ -94,24 +86,17 @@ function Promo() {
             },
             body: JSON.stringify(requestData),
         })
-            .then(response => {
-                console.log(response);
-                return response.text();
-            })
+            .then(response => response.text())
             .then(text => {
-                console.log(text);
                 if (text) {
                     return JSON.parse(text);
                 }
                 return {};
             })
             .then(data => {
-                console.log(data);
                 if (data.success) {
                     localStorage.setItem('referral', data.referralCode);
-                    console.log(data);
                     setRefferal(data.referralCode);
-                    // toast.success(name + ' откреплен.')
                 } else {
                     navigate(`/`);
                 }
@@ -122,68 +107,38 @@ function Promo() {
             });
     };
 
-    const customTheme = extendTheme({
-        fonts: {
-            heading: "'Poiret One', sans-serif", // for headings
-            body: "'Poiret One', sans-serif",    // for body text
-        },
-    });
-
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <ToastContainer toastStyle={{color: '#ffffff', backgroundColor: '#333333'}}/>
-            <ChakraProvider theme={customTheme}>
-                <Center py={9} flexDirection="column"
-                        maxW={"calc(2 * 330px + 2 * 16px)"}
-                        w={'90%'}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <ToastContainer toastStyle={{ color: '#ffffff', backgroundColor: '#333333' }} />
+            <div style={{ padding: '36px', maxWidth: 'calc(2 * 330px + 2 * 16px)', width: '90%' }}>
+                <User />
 
-                    <User/>
+                {Refferal.length > 10 ? (
+                    <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '8px', marginBottom: '16px', textAlign: 'center', width: '100%' }}>
+                        <div style={{ marginBottom: '16px' }}>
+                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1.1, marginBottom: '16px' }}>
+                                <BsStars size="60px" style={{ marginRight: '16px' }} />
+                                <p>Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!</p>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1, height: '60px', marginBottom: '16px' }}>
+                                <PiStarFourFill size="60px" style={{ marginRight: '16px' }} />
+                                <p>Поделись своей ссылкой-приглашением со знакомым в любом удобном формате</p>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1, height: '60px', marginBottom: '16px' }}>
+                                <PiStarFourFill size="60px" style={{ marginRight: '16px' }} />
+                                <p>Когда он начнет пользоваться сервисом, ты автоматически получишь скидку на оплату подписки в 25%</p>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1, height: '60px', marginBottom: '16px' }}>
+                                <PiStarFourFill size="60px" style={{ marginRight: '16px' }} />
+                                <p>Скидки от нескольких приглашенных складываются, время проведения акции не ограничено</p>
+                            </div>
+                        </div>
 
-                    { Refferal.length > 10 ? (
-                        <Box
-                            bg='white'
-                            p={2}
-                            borderRadius="md"
-                            mb={4}
-                            textAlign="center"
-                            w={'full'}
-                        >
-                            <Stack direction="column" spacing={4} width="100%" justifyContent="center" alignItems="center">
-                                <UnorderedList spacing={4} styleType="none" mt={4}>
-                                    <ListItem>
-                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1.1} >
-                                            <BsStars width="60px" height="60px" m={4} />
-                                            <Text>Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!</Text>
-                                        </Flex>
-                                    </ListItem>
-
-                                    <ListItem>
-                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1} height="60px">
-                                            <PiStarFourFill boxSize="60px" m={4} />
-                                            <Text>Поделись своей ссылкой-приглашением со знакомым в любом удобном формате</Text>
-                                        </Flex>
-                                    </ListItem>
-
-                                    <ListItem>
-                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1} height="60px">
-                                            <PiStarFourFill boxSize="60px" m={4} />
-                                            <Text>Когда он начнет пользоваться сервисом, ты автоматически получишь скидку на оплату подписки в 25%</Text>
-                                        </Flex>
-                                    </ListItem>
-
-                                    <ListItem>
-                                        <Flex direction="row" alignItems="flex-start" fontWeight="bold" lineHeight={1} height="60px">
-                                            <PiStarFourFill boxSize="60px" m={4} />
-                                            <Text>Скидки от нескольких приглашенных складываются, время проведения акции не ограничено</Text>
-                                        </Flex>
-                                    </ListItem>
-                                </UnorderedList>
-
-                            <Stack direction={{base: "column", md: "row"}} spacing={4} width="100%" justifyContent="center" alignContent="center">
-
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <div
                                 className="qr-code"
                                 onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
+                                style={{ marginRight: '16px' }}
                             >
                                 <QRCodeCanvas
                                     value={"https://gostlink.ru/?token=" + Refferal}
@@ -192,69 +147,57 @@ function Promo() {
                                     fgColor={"#000000"}
                                     level={"L"}
                                     includeMargin={true}
-                                    minVersion={5}
                                     imageSettings={{
                                         src: "/logo512.png",
-                                        x: undefined,
-                                        y: undefined,
                                         height: 64,
                                         width: 64,
-                                        opacity: 1,
                                         excavate: true,
                                     }}
                                 />
                             </div>
 
-                                <Stack direction="column" m={1} mb={4} mr={4} spacing={0} width="100%" justifyContent="center" alignContent="center">
-                                    <Button
-                                        onClick={() => {handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}}
-                                        mt={4}
-                                        w={'full'}
-                                        bg={'#111821'}
-                                        color={'white'}
-                                        rounded={'xl'}
-                                        boxShadow={'0 5px 20px 0px rgb(22 31 43 / 43%)'}
-                                        _hover={{bg: '#1A2533',}}
-                                        _focus={{bg: '#223041',}}>
-                                        Поделиться
-                                    </Button>
-                                    <Button
-                                        onClick={() => {copyToClipboard("https://gostlink.ru/?token=" + Refferal)}}
-                                        mt={4}
-                                        w={'full'}
-                                        bg={'#111821'}
-                                        color={'white'}
-                                        rounded={'xl'}
-                                        boxShadow={'0 5px 20px 0px rgb(22 31 43 / 43%)'}
-                                        _hover={{bg: '#1A2533',}}
-                                        _focus={{bg: '#223041',}}>
-                                        Скопировать ссылку
-                                    </Button>
-                                    <Button
-                                        onClick={() => {handleDownload()}}
-                                        mt={4}
-                                        w={'full'}
-                                        bg={'#111821'}
-                                        color={'white'}
-                                        rounded={'xl'}
-                                        boxShadow={'0 5px 20px 0px rgb(22 31 43 / 43%)'}
-                                        _hover={{bg: '#1A2533',}}
-                                        _focus={{bg: '#223041',}}>
-                                        Скачать QR код
-                                    </Button>
-                                </Stack>
-                            </Stack>
-                        </Stack>
-
-                        </Box>
-                    ) : (
-                        <div>Загрузка...</div>
-                    )}
-
-                </Center>
-            </ChakraProvider>
+                            <div style={{ marginLeft: '16px', textAlign: 'center' }}>
+                                <button
+                                    onClick={() => handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
+                                    style={buttonStyle}
+                                >
+                                    Поделиться
+                                </button>
+                                <button
+                                    onClick={() => copyToClipboard("https://gostlink.ru/?token=" + Refferal)}
+                                    style={buttonStyle}
+                                >
+                                    Скопировать ссылку
+                                </button>
+                                <button
+                                    onClick={handleDownload}
+                                    style={buttonStyle}
+                                >
+                                    Скачать QR код
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <div>Загрузка...</div>
+                )}
+            </div>
         </div>
     );
 }
+
+const buttonStyle = {
+    display: 'block',
+    width: '100%',
+    backgroundColor: '#111821',
+    color: 'white',
+    padding: '12px',
+    borderRadius: '12px',
+    marginTop: '8px',
+    cursor: 'pointer',
+    boxShadow: '0 5px 20px 0px rgb(22 31 43 / 43%)',
+    border: 'none',
+    textAlign: 'center'
+};
 
 export default Promo;

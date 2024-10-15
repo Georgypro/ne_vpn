@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import './languages/i18n';
-import {Avatar, Box, Flex, Text} from '@chakra-ui/react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DefaultProfilePhoto from "./profile.svg";
 import './css/custom-toast.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,43 +28,51 @@ function User() {
     }, [photoUrl]);
 
     return (
-        <Flex width="100%" direction="row" justify="flex-end" mb="30px">
-            <Box textAlign="right">
-                <Text color="white" fontSize={{ base: '18px', md: '24px' }} onClick={() => navigate('/profile')}>{localStorage.getItem('email')}</Text>
-                { localStorage.getItem('subscriptionIsActive') === 'true' ? (
-                    <Text color="white" fontSize={{ base: '18px', md: '24px' }} onClick={() => navigate('/profile')}>
-                        Подписка до: {localStorage.getItem('expirationDate')}</Text>
+        <div style={{ display: 'flex', width: '100%', flexDirection: 'row', justifyContent: 'flex-end', marginBottom: '30px' }}>
+            <div style={{ textAlign: 'right' }}>
+                <p style={{ color: 'white', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/profile')}>
+                    {localStorage.getItem('email')}
+                </p>
+                {localStorage.getItem('subscriptionIsActive') === 'true' ? (
+                    <p style={{ color: 'white', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/profile')}>
+                        Подписка до: {localStorage.getItem('expirationDate')}
+                    </p>
                 ) : (
-                    <Text color="white" fontSize={{ base: '18px', md: '24px' }} onClick={() => navigate('/profile')}>
-                        {localStorage.getItem('expirationDate')}</Text>
+                    <p style={{ color: 'white', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/profile')}>
+                        {localStorage.getItem('expirationDate')}
+                    </p>
                 )}
-                <Text color="lightgray" fontStyle={"italic"} textDecoration="underline" fontSize={{ base: '14px', md: '14px' }}
-                      onClick={() => navigate('/')}>сменить аккаунт</Text>
-            </Box>
+                <p style={{ color: 'lightgray', fontStyle: 'italic', textDecoration: 'underline', fontSize: '14px', cursor: 'pointer' }} onClick={() => navigate('/')}>
+                    сменить аккаунт
+                </p>
+            </div>
 
-            <Flex
-                width={{base: '60px', md: '80px'}}
-                height={{base: '60px', md: '80px'}}
-                bg="white"
-                borderRadius="full"
-                ml="30px"
-                mt="10px"
-                justify="center"
-                align="center"
+            <div
+                style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: 'white',
+                    borderRadius: '50%',
+                    marginLeft: '30px',
+                    marginTop: '10px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    cursor: 'pointer'
+                }}
                 onClick={() => navigate('/profile')}
             >
                 {!imageExists ? (
-                    <img src={DefaultProfilePhoto} alt="Profile"/>
+                    <img src={DefaultProfilePhoto} alt="Profile" style={{ width: '90%', height: '90%', borderRadius: '50%' }} />
                 ) : (
-                    <Avatar
+                    <img
                         src={photoUrl}
-                        width="90%"
-                        height="90%"
-                        borderRadius="full"
+                        alt="Profile"
+                        style={{ width: '90%', height: '90%', borderRadius: '50%' }}
                     />
                 )}
-            </Flex>
-        </Flex>
+            </div>
+        </div>
     );
 }
 
