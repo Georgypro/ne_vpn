@@ -20,6 +20,7 @@ function App() {
                   </div>
                   <Router>
                       <Routes>
+                          {/*TODO no chakra test*/}
                           <Route path="/promo" element={<Promo/>}/>
                           <Route path="/profile" element={<Profile/>}/>
                           <Route path="/mobileShop" element={<ShopVMobile/>}/>
