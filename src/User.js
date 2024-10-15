@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import './User.css';
 import './languages/i18n';
 import { useNavigate } from "react-router-dom";
 import DefaultProfilePhoto from "./profile.svg";
@@ -28,47 +29,33 @@ function User() {
     }, [photoUrl]);
 
     return (
-        <div style={{ display: 'flex', width: '100%', flexDirection: 'row', justifyContent: 'flex-end', marginBottom: '30px' }}>
-            <div style={{ textAlign: 'right' }}>
-                <p style={{ color: 'white', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/profile')}>
+        <div className="container">
+            <div className="text-right">
+                <p className="text-white" onClick={() => navigate('/profile')}>
                     {localStorage.getItem('email')}
                 </p>
                 {localStorage.getItem('subscriptionIsActive') === 'true' ? (
-                    <p style={{ color: 'white', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/profile')}>
+                    <p className="text-white" onClick={() => navigate('/profile')}>
                         Подписка до: {localStorage.getItem('expirationDate')}
                     </p>
                 ) : (
-                    <p style={{ color: 'white', fontSize: '18px', cursor: 'pointer' }} onClick={() => navigate('/profile')}>
+                    <p className="text-white" onClick={() => navigate('/profile')}>
                         {localStorage.getItem('expirationDate')}
                     </p>
                 )}
-                <p style={{ color: 'lightgray', fontStyle: 'italic', textDecoration: 'underline', fontSize: '14px', cursor: 'pointer' }} onClick={() => navigate('/')}>
+                <p className="text-lightgray" onClick={() => navigate('/')}>
                     сменить аккаунт
                 </p>
             </div>
 
-            <div
-                style={{
-                    width: '60px',
-                    height: '60px',
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    marginLeft: '30px',
-                    marginTop: '10px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer'
-                }}
-                onClick={() => navigate('/profile')}
-            >
+            <div className="profile-picture" onClick={() => navigate('/profile')}>
                 {!imageExists ? (
-                    <img src={DefaultProfilePhoto} alt="Profile" style={{ width: '90%', height: '90%', borderRadius: '50%' }} />
+                    <img src={DefaultProfilePhoto} alt="Profile" className="profile-image" />
                 ) : (
                     <img
                         src={photoUrl}
                         alt="Profile"
-                        style={{ width: '90%', height: '90%', borderRadius: '50%' }}
+                        className="profile-image"
                     />
                 )}
             </div>

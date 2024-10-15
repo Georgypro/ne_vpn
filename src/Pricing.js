@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import User from "./User";
 import {BsStars} from "react-icons/bs";
+import './Pricing.css'
 
 const Pricing = () => {
 
@@ -113,104 +114,46 @@ const Pricing = () => {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', maxWidth: '700px', margin: 'auto' }}>
-            <User />
-
-            <div style={{ width: '100%', backgroundColor: '#fff', padding: '10px', textAlign: 'center', marginBottom: '20px' }}></div>
-
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', maxWidth: '700px', margin: 'auto', gap: '50px'}}>
+            <User/>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '20px' }}>
-                <div style={{ width: '330px', backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
-                    <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f0f4f7', color: '#333' }}>
-                        <span style={{ backgroundColor: '#e6f4ea', color: '#2f855a', padding: '5px', borderRadius: '10px', fontWeight: 'bold' }}>Скидка 40%</span>
-                        <h3 style={{ margin: '10px 0', fontWeight: 'bold' }}>Подписка на 2 устройства</h3>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px' }}>
-                            <span style={{ fontSize: '36px', fontWeight: 'bold' }}>299</span>
-                            <span style={{ fontWeight: 'bold', fontSize: '16px' }}>₽/мес</span>
+                <div className="card">
+                    <div className="card-header">
+                        <span className="discount-badge" style={{backgroundColor: '#e6f4ea', color: '#2f855a'}}>Скидка 40%</span>
+                        <h3 className="card-title">Подписка на 2 устройства</h3>
+                        <div className="price">
+                            <span className="price-value">299</span>
+                            <span className="price-symbol">₽/мес</span>
                         </div>
-                        <div style={{ textDecoration: 'line-through', color: 'darkgray', fontSize: '14px' }}>498 ₽/мес</div>
+                        <div className="price-old">498 ₽/мес</div>
                     </div>
-                    <div style={{padding: '20px', backgroundColor: '#f9fafb', color: 'black'}}>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> ∞ GB/мес
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Безграничный доступ к иностранным сервисам
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Работают банки
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Без ограничений скорости
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Без рекламы
-                        </span>
-
-
-                        <button onClick={() => pay(470)} style={{
-                            width: '100%',
-                            padding: '10px',
-                            backgroundColor: '#48bb78',
-                            color: 'white',
-                            borderRadius: '10px',
-                            cursor: 'pointer'
-                        }}>Выбрать
-                        </button>
+                    <div className="card-body">
+                        <span className="feature"><BsStars/> ∞ GB/мес</span><br/>
+                        <span className="feature"><BsStars/> Безграничный доступ к иностранным сервисам</span><br/>
+                        <span className="feature"><BsStars/> Работают банки</span><br/>
+                        <span className="feature"><BsStars/> Без ограничений скорости</span><br/>
+                        <span className="feature"><BsStars/> Без рекламы</span>
+                        <button onClick={() => pay(470)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
                     </div>
                 </div>
 
-                <div style={{
-                    width: '330px',
-                    backgroundColor: '#fff',
-                    borderRadius: '10px',
-                    boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
-                    overflow: 'hidden'
-                }}>
-                    <div style={{textAlign: 'center', padding: '20px', backgroundColor: '#f0f4f7', color: '#333'}}>
-                        <span style={{
-                            backgroundColor: '#fefcbf',
-                            color: '#d69e2e',
-                            padding: '5px',
-                            borderRadius: '10px',
-                            fontWeight: 'bold'
-                        }}>Скидка 50%</span>
-                        <h3 style={{margin: '10px 0', fontWeight: 'bold'}}>Подписка на 3 устройства</h3>
-                        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px'}}>
-                            <span style={{fontSize: '36px', fontWeight: 'bold'}}>399</span>
-                            <span style={{fontWeight: 'bold', fontSize: '16px'}}>₽/мес</span>
+                <div className="card">
+                    <div className="card-header">
+                        <span className="discount-badge" style={{backgroundColor: '#fefcbf', color: '#d69e2e'}}>Скидка 50%</span>
+                        <h3 className="card-title">Подписка на 3 устройства</h3>
+                        <div className="price">
+                            <span className="price-value">399</span>
+                            <span className="price-symbol">₽/мес</span>
                         </div>
-                        <div style={{ textDecoration: 'line-through', color: 'darkgray', fontSize: '14px' }}>799 ₽/мес</div>
+                        <div className="price-old">799 ₽/мес</div>
                     </div>
-                    <div style={{ padding: '20px', backgroundColor: '#f9fafb', color: 'black' }}>
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> ∞ GB/мес
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Безграничный доступ к иностранным сервисам
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Работают банки
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Без ограничений скорости
-                        </span> <br/>
-
-                        <span style={{marginRight: '5px', fontSize: '20px'}}>
-                          <BsStars/> Без рекламы
-                        </span>
-                        <button onClick={() => payYear(630)} style={{
-                            width: '100%',
-                            padding: '10px',
-                            backgroundColor: '#48bb78',
-                            color: 'white', borderRadius: '10px', cursor: 'pointer' }}>Выбрать</button>
+                    <div className="card-body">
+                        <span className="feature"><BsStars/> ∞ GB/мес</span><br/>
+                        <span className="feature"><BsStars/> Безграничный доступ к иностранным сервисам</span><br/>
+                        <span className="feature"><BsStars/> Работают банки</span> <br/>
+                        <span className="feature"><BsStars/> Без ограничений скорости</span> <br/>
+                        <span className="feature"><BsStars/> Без рекламы</span>
+                        <button onClick={() => payYear(630)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
                     </div>
                 </div>
             </div>
