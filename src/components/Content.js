@@ -4,7 +4,7 @@ import { GoChevronRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import logo from "../logo.svg";
 import SignInButton from "../registration/SignInButton";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import Yandex from "../YandexLogo.svg";
 import YandexAuth from "../registration/YandexAuth";
 
@@ -13,6 +13,16 @@ function Content() {
     const descriptions = t('Description', {returnObjects: true});
     const [activeIndex, setActiveIndex] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const token = searchParams.get('token');
+
+        if (token) {
+            localStorage.setItem('promo', token);
+        }
+    }, [location.search]);
 
     const handleToggle = (index) => {
         setActiveIndex(activeIndex === index ? null : index);

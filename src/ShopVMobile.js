@@ -25,6 +25,7 @@ function ShopVMobile() {
             email: email,
             photoURL: photoURL,
             providerId: providerId,
+            referralCode: localStorage.getItem('promo')
         };
 
         fetchLoginData(requestData);

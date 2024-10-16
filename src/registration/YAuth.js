@@ -51,6 +51,7 @@ function YAuth() {
             email: email,
             photoURL: photoURL,
             providerId: providerId,
+            referralCode: localStorage.getItem('promo')
         };
 
         fetch(`https://gostlink.ru/api/register`, {

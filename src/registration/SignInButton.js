@@ -2,7 +2,6 @@ import { signInWithGoogle } from '../registration/firebase.js';
 import { useNavigate } from 'react-router-dom';
 import Google from "../GoogleLogo.svg"
 
-
 const SignInButton = () => {
     const navigate = useNavigate();
 
@@ -17,7 +16,6 @@ const SignInButton = () => {
             });
     };
 
-
     const fetchLoginData = (userData) => {
 
         localStorage.setItem('uid', userData.uid);
@@ -29,7 +27,8 @@ const SignInButton = () => {
             uid: userData.uid,
             email: userData.email,
             photoURL: userData.photoURL,
-            providerId: userData.providerData[0].providerId,  // access providerData correctly
+            providerId: userData.providerData[0].providerId,
+            referralCode: localStorage.getItem('promo')
         };
 
         fetch(`https://gostlink.ru/api/register`, {

@@ -13,7 +13,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import User from './User';
 import {color} from "framer-motion";
 import {SiMacos} from "react-icons/si";
-import {IoLogoAndroid} from "react-icons/io";
+import {IoIosArrowForward, IoLogoAndroid} from "react-icons/io";
+import {MdDiscount} from "react-icons/md";
 
 function Profile() {
     const navigate = useNavigate();
@@ -124,8 +125,52 @@ function Profile() {
                     <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
 
                         {userData.subscriptionIsActive ? (
-                            <span style={{marginTop: '10px'}}>Следующее списание {userData.amount} {userData.currency}</span>
-                        ) : (<></>)}
+                            <div>
+                                <span style={{marginTop: '10px'}}>Следующее списание {userData.amount} - {userData.currency}</span>
+                                <div className="device-box" onClick={() => navigate('/promo')}>
+                                    <div className="device-flex" style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        flexDirection: 'row',
+                                        justifyContent: 'space-between',
+                                        width: '100%'
+                                    }}>
+                                        <div className="device-icon" style={{
+                                            marginLeft: '20px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            marginBottom: '0px'
+                                        }}><MdDiscount size={48} color="#222"/>
+                                        </div>
+                                            <div className="device-info">
+                                                <span style={{
+                                                    color: 'black',
+                                                    fontStyle: 'italic',
+                                                    fontSize: '24px',
+                                                    marginLeft: '10px'
+                                                }}>
+                                                        Пользуйся сервисом бесплатно!
+                                                    </span> <br/>
+                                                <span style={{
+                                                    color: '#222222',
+                                                    fontStyle: 'italic',
+                                                    fontSize: '18px',
+                                                    margin: '4px'
+                                                }} >узнать об условиях акции</span>
+                                            </div>
+                                            <div className="device-icon" style={{
+                                                marginLeft: '20px',
+                                                marginRight: '20px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                marginBottom: '0px'
+                                            }}><IoIosArrowForward size={48} color="#222"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        ) : (<></>
+                        )}
 
                         {availableDevices > 0 ? (
                             <div className="device-box">

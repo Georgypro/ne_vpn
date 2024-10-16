@@ -110,11 +110,11 @@ function Promo() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <ToastContainer toastStyle={{ color: '#ffffff', backgroundColor: '#333333' }} />
-            <div style={{ padding: '36px', maxWidth: 'calc(2 * 330px + 2 * 16px)', width: '90%' }}>
+            <div style={{ maxWidth: 'calc(2 * 330px + 2 * 16px)', width: '100%' }}>
                 <User />
 
                 {Refferal.length > 10 ? (
-                    <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '8px', marginBottom: '16px', textAlign: 'center', width: '100%' }}>
+                    <div className='device-box' >
                         <div style={{ marginBottom: '16px' }}>
                             <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1.1, marginBottom: '16px' }}>
                                 <BsStars size="60px" style={{ marginRight: '16px' }} />
