@@ -11,7 +11,7 @@ import {IoIosMail} from "react-icons/io";
 function Signature() {
 
     return (
-        <div className="signateiner" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <div className="signateiner" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '40px'}}>
             <hr className='full-line'/>
             <div className="support" style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}
                  onClick={() => window.open('https://t.me/gostlink_support_bot?start=GOSTLINK', '_blank')}>

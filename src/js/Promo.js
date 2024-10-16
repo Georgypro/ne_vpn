@@ -145,7 +145,7 @@ function Promo() {
                                     size={300}
                                     bgColor={"#FFFFFF"}
                                     fgColor={"#000000"}
-                                    level={"L"}
+                                    level={"H"}
                                     includeMargin={true}
                                     imageSettings={{
                                         src: "/logo512.png",

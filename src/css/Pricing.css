@@ -1,12 +1,4 @@
-.container-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    max-width: 700px;
-    margin: auto;
-    gap: 30px;
-}
+
 
 .row-main {
     display: flex;
@@ -79,12 +71,6 @@
 }
 
 @media (max-width: 800px) {
-
-    .container-main {
-        display: flex;
-        flex-direction: column;
-        align-items: center !important;
-    }
 
     .row-main {
         width: 90% !important;
