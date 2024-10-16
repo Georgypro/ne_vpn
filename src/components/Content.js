@@ -32,7 +32,7 @@ function Content() {
             <>
                 <div className="Content" style={{marginTop: '30px'}}>
                     <h1 id="TitleSite">GOSTLINK</h1>
-                    <img style={{marginLeft:'20px'}} src={logo} id="LogoSite"/>
+                    <img style={{marginLeft:'5px'}} src={logo} id="LogoSite"/>
                 </div>
                 <div className="Content" style={{height: '5vh', marginBottom: '30px', marginTop: '10px'}}>
                     <h2 id="DescriptionSite">Самый быстрый в обитаемой вселенной!</h2>
@@ -57,7 +57,7 @@ function Content() {
                         <h2>Войти с помощью:</h2>
                         <SignInButton/>
                         <div style={{
-                            width: '50%',
+                            width: '80%',
                             display: 'flex',
                             flexDirection: 'row',
                             justifyContent: 'space-between',

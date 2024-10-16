@@ -78,10 +78,9 @@
 
 .DescriptionElement p {
     font-size: 18px;
-    font-weight: bolder;
     margin-top: 10px;
     width: 90%;
-    color: #93959E;
+    color: white;
 }
 
 .icon {
@@ -95,7 +94,7 @@
 
 
 #RegistrationBlock {
-    width: 40%;
+    width: 30%;
     height: 100%;
     min-height: 500px;
     margin-left: 50px;
@@ -180,7 +179,7 @@
 
     #TitleSite {
         font-size: 50px;
-        margin-right: 50px;
+        margin-right: 5px;
         background: linear-gradient(to bottom, #ffffff, #444857);
         -webkit-background-clip: text;
         color: transparent;
@@ -188,7 +187,7 @@
 
     #DescriptionSite {
         font-size: 20px;
-        background: linear-gradient(to bottom, #ffffff, #444857);
+        background: #f0f7f7;
         -webkit-background-clip: text;
         color: transparent;
     }
@@ -223,7 +222,7 @@
         font-size: 36px;
         margin: 0;
         font-weight: normal;
-        background: linear-gradient(to bottom, #ffffff, #444857);
+        background: #f0f7f7;
         -webkit-background-clip: text;
         color: transparent;
     }
@@ -243,10 +242,9 @@
 
     .DescriptionElement p {
         font-size: 18px;
-        font-weight: bolder;
         margin-top: 10px;
         width: 90%;
-        color: #93959E;
+        background: transparent;
     }
 
     .icon {
@@ -277,7 +275,7 @@
 
     #RegistrationBlock h2 {
         font-size: 36px;
-        background: linear-gradient(to bottom, #ffffff, #444857);
+        background: #f0f7f7;
         -webkit-background-clip: text;
         color: transparent;
     }
@@ -287,7 +285,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 50%;
+        width: 70%;
         height: 46px;
         border-radius: 25px;
         border: none;

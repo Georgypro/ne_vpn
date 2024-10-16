@@ -126,7 +126,7 @@ function Profile() {
 
                         {userData.subscriptionIsActive ? (
                             <div>
-                                <span style={{marginTop: '10px'}}>Следующее списание {userData.amount} - {userData.currency}</span>
+                                <span style={{marginTop: '10px'}}>Следующее списание {userData.amount} {userData.currency}</span>
                                 <div className="device-box" onClick={() => navigate('/promo')}>
                                     <div className="device-flex" style={{
                                         display: 'flex',
@@ -156,7 +156,7 @@ function Profile() {
                                                     fontStyle: 'italic',
                                                     fontSize: '18px',
                                                     margin: '4px'
-                                                }} >узнать об условиях акции</span>
+                                                }} >твоя текущая скидка {userData.discount}%</span>
                                             </div>
                                             <div className="device-icon" style={{
                                                 marginLeft: '20px',
