@@ -9,6 +9,7 @@ import ShopVMobile from "./js/ShopVMobile";
 import Profile from "./js/Profile";
 import Promo from "./js/Promo";
 import YAuthMobile from "./registration/YAuthMobile";
+import Signature from "./js/Signature";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               </div>
 
           </div>
+          <Signature/>
       </div>
   );
 }

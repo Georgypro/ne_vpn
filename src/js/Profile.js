@@ -93,7 +93,7 @@ function Profile() {
     };
 
     const getPlatformIcon = (platform) => {
-        switch (platform) {
+        switch (platform.toLowerCase()) {
             case 'android':
                 return <FaAndroid size={48} color="#222" />;
             case 'ios':
@@ -176,20 +176,20 @@ function Profile() {
                             <span>Скачай приложение</span> <br/>
                             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
                                 {/*TODO: add links to install files*/}
-                                <IoLogoAndroid size={66} color="#222" style={{marginRight: '15px'}}/>
-                                <FaWindows size={48} color="#222" style={{marginRight: '15px'}}/>
-                                <FaApple size={48} color="#222" style={{marginRight: '15px'}}/>
-                                <FaLinux size={48} color="#222" style={{marginRight: '15px'}}/>
-                                <SiMacos size={60} color="#222" style={{marginRight: '15px'}}/>
+                                <IoLogoAndroid size={66} color="#222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaWindows size={48} color="#222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaApple size={48} color="#222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaLinux size={48} color="#222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <SiMacos size={60} color="#222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
                             </div>
 
                         </div>
                     ) : (<></>)}
 
                     {deviceData.length > 0 ? (
-                        <ul style={{listStyleType: 'none', margin: '0', padding: '0'}}>
+                        <ul style={{listStyleType: 'none', margin: '0', padding: '0', width: '100%'}}>
                             {deviceData.map((device) => (
-                                <li key={device.id} className="device-item">
+                                <li key={device.id} className="device-item" style={{width: '100%'}}>
                                     <div className="device-box">
                                         <div className="device-flex" style={{
                                             display: 'flex',
