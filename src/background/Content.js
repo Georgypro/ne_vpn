@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import './Content.css';
+import '../css/Content.css';
 import { GoChevronRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
-import logo from "../logo.svg";
+import logo from "../images/logo.svg";
 import SignInButton from "../registration/SignInButton";
 import {useLocation, useNavigate} from "react-router-dom";
-import Yandex from "../YandexLogo.svg";
+import Yandex from "../images/YandexLogo.svg";
 import YandexAuth from "../registration/YandexAuth";
 
 function Content() {
@@ -35,7 +35,7 @@ function Content() {
                     <img style={{marginLeft:'5px'}} src={logo} id="LogoSite"/>
                 </div>
                 <div className="Content" style={{height: '5vh', marginBottom: '30px', marginTop: '10px'}}>
-                    <h2 id="DescriptionSite">Самый быстрый в обитаемой вселенной!</h2>
+                    <span id="DescriptionSite">Самый быстрый в обитаемой вселенной!</span>
                 </div>
                 <div className="Content ColumnContent" style={{alignItems: "flex-start", marginBottom: '20px'}}>
                     <div id="Description">
@@ -54,7 +54,7 @@ function Content() {
                     </div>
 
                     <div id="RegistrationBlock">
-                        <h2>Войти с помощью:</h2>
+                        <span>Войти с помощью:</span>
                         <SignInButton/>
                         <div style={{
                             width: '80%',

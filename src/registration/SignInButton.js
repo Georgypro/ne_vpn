@@ -1,6 +1,6 @@
 import { signInWithGoogle } from '../registration/firebase.js';
 import { useNavigate } from 'react-router-dom';
-import Google from "../GoogleLogo.svg"
+import Google from "../images/GoogleLogo.svg"
 
 const SignInButton = () => {
     const navigate = useNavigate();

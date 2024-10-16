@@ -1,5 +1,5 @@
 import React from 'react';
-import Yandex from "../YandexLogo.svg";
+import Yandex from "../images/YandexLogo.svg";
 
 function YandexAuth() {
 

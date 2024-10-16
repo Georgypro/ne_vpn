@@ -11,6 +11,7 @@
     box-shadow: 0 5px 20px 0 rgba(22, 31, 43, 0.43);
     border: none;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .button_dark:hover {

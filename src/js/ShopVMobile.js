@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import './languages/i18n';
+import '../css/App.css';
+import '../languages/i18n';
 import Pricing from "./Pricing";
 import {useNavigate} from "react-router-dom";
 

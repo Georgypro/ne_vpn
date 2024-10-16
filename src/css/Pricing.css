@@ -1,3 +1,20 @@
+.container-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    max-width: 700px;
+    margin: auto;
+    gap: 30px;
+}
+
+.row-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
 .card {
     width: 330px;
     background-color: #fff;
@@ -61,3 +78,14 @@
     /*margin-bottom: 200px;*/
 }
 
+@media (max-width: 800px) {
+    .row-main {
+        flex-direction: column; /* Изменяем направление на вертикальное */
+        align-items: center; /* Центрируем карточки по горизонтали */
+    }
+
+    .card {
+        width: 100%; /* Делаем карточки шириной 100% для мобильной версии */
+        max-width: 330px; /* Ограничиваем максимальную ширину карточки */
+    }
+}

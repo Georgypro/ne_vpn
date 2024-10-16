@@ -1,13 +1,13 @@
-import './App.css';
+import './css/App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import StartPage from "./StartPage.js";
-import Shop from "./Shop.js";
-import Background from "./components/Background";
+import StartPage from "./js/StartPage.js";
+import Shop from "./js/Shop.js";
+import Background from "./background/Background";
 import YAuth from "./registration/YAuth";
-import ShopVMobile from "./ShopVMobile";
-import Profile from "./Profile";
-import Promo from "./Promo";
+import ShopVMobile from "./js/ShopVMobile";
+import Profile from "./js/Profile";
+import Promo from "./js/Promo";
 import YAuthMobile from "./registration/YAuthMobile";
 
 function App() {

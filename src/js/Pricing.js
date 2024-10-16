@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import User from "./User";
 import {BsStars} from "react-icons/bs";
-import './Pricing.css'
+import '../css/Pricing.css'
 
 const Pricing = () => {
 
@@ -179,9 +179,9 @@ const Pricing = () => {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', maxWidth: '700px', margin: 'auto', gap: '50px'}}>
-            <User/>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '20px' }}>
+        <div className="container-main">
+            <User />
+            <div className="row-main">
                 <div className="card">
                     <div className="card-header">
                         <span className="discount-badge" style={{backgroundColor: '#e6f4ea', color: '#2f855a'}}>Скидка 40%</span>
@@ -198,7 +198,8 @@ const Pricing = () => {
                         <span className="feature"><BsStars/> Работают банки</span><br/>
                         <span className="feature"><BsStars/> Без ограничений скорости</span><br/>
                         <span className="feature"><BsStars/> Без рекламы</span>
-                        <button onClick={() => pay(299)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
+                        <button onClick={() => pay(299)} style={{marginTop: '30px'}} className="button_dark">Выбрать
+                        </button>
                     </div>
                 </div>
 
@@ -218,7 +219,9 @@ const Pricing = () => {
                         <span className="feature"><BsStars/> Работают банки</span> <br/>
                         <span className="feature"><BsStars/> Без ограничений скорости</span> <br/>
                         <span className="feature"><BsStars/> Без рекламы</span>
-                        <button onClick={() => payYear(399)} style={{marginTop: '30px'}} className="button_dark">Выбрать</button>
+                        <button onClick={() => payYear(399)} style={{marginTop: '30px'}}
+                                className="button_dark">Выбрать
+                        </button>
                     </div>
                 </div>
             </div>

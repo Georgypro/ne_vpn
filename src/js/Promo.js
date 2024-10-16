@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import './languages/i18n';
+import '../css/App.css';
+import '../languages/i18n';
 import { useNavigate } from "react-router-dom";
-import './css/custom-toast.css';
+import '../css/custom-toast.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import User from "./User";
