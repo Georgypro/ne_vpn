@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import '../languages/i18n';
-import Pricing from "./Pricing";
+import Pricing from "./elements/Pricing";
 import {useNavigate} from "react-router-dom";
 
 function Shop() {

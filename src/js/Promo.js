@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../css/App.css';
 import '../languages/i18n';
 import { useNavigate } from "react-router-dom";
-import '../css/custom-toast.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import User from "./User";
+import User from "./elements/User";
 import { QRCodeCanvas } from 'qrcode.react';
 import { PiStarFourFill } from "react-icons/pi";
 import { BsStars } from "react-icons/bs";
@@ -110,148 +109,81 @@ function Promo() {
     return (
         <div className="container-main">
             <ToastContainer toastStyle={{ color: '#ffffff', backgroundColor: '#333333' }} />
-                <User />
+            <User />
+            {Refferal.length > 10 ? (
+                <div style={{width: '100%'}}>
+                    <div className="device-box">
+                        <div className="device-flex">
+                            <div className="device-icon">
+                                <BsStars height="100%" width="100%"/>
+                            </div>
+                            <span style={{marginRight: '30px', fontSize: '16px'}}>
+                                    Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!
+                                </span>
+                        </div>
+                    </div>
 
-                {Refferal.length > 10 ? (
-                    <div className="row-main">
-                        <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-                            <div className="device-box">
-                                <div className="device-flex" style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    flexDirection: 'row',
-                                    justifyContent: 'space-between',
-                                    width: '100%'
-                                }}>
-                                    <div className="device-icon" style={{
-                                        marginLeft: '15px',
-                                        marginRight: '15px',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}>
-                                        <BsStars height="100%" width="100%"/>
-                                    </div>
-                                        <span style={{marginRight: '30px', fontSize: '12pt'}}>Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!</span>
-                                    </div>
-                                </div>
+                    <div className="device-box">
+                        <div className="device-flex">
+                            <h2>1</h2>
+                            <span style={{marginRight: '30px', fontSize: '16px'}}>
+                                    Поделись своей уникальной ссылкой-приглашением в сервис GOSTLINK со знакомым, друзьями или семьей
+                                </span>
+                        </div>
+                    </div>
 
-                                <div className="device-box">
-                                    <div className="device-flex" style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        flexDirection: 'row',
-                                    justifyContent: 'space-between',
-                                    width: '100%'
-                                }}>
-                                    <h2 style={{marginLeft: '20px', marginRight: '20px', marginTop: '0', marginBottom: '0'}}>1</h2>
-                                    <span style={{marginRight: '30px', fontSize: '12pt'}}>Поделись своей уникальной ссылкой-приглашением в сервис GOSTLINK со знакомым, друзьями или семьей</span>
-                                </div>
+                    <div className="device-box">
+                        <div className="device-flex">
+                            <h2>2</h2>
+                            <span style={{marginRight: '30px', fontSize: '16px'}}>
+                                    Когда твой приглашенный начнет пользоваться сервисом, ты получишь скидку на оплату подписки в 25% от полной стоимости
+                                </span>
+                        </div>
+                    </div>
+
+                    <div className="device-box">
+                        <div className="device-flex">
+                            <h2>3</h2>
+                            <span style={{marginRight: '30px', fontSize: '16px'}}>
+                                    Скидки от нескольких приглашенных складываются (не более 100%), время проведения акции не ограничено
+                                </span>
+                        </div>
+                    </div>
+
+                    <div className="device-box">
+                        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <div className="qr-code"
+                                 onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
+                                 style={{marginRight: '5px'}}>
+                                <QRCodeCanvas
+                                    value={"https://gostlink.ru/?token=" + Refferal}
+                                    size={180}
+                                    bgColor={"#FFFFFF"}
+                                    fgColor={"#000000"}
+                                    level={"H"}
+                                    marginSize={4}
+                                />
                             </div>
 
-                            <div className="device-box">
-                                <div className="device-flex" style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    flexDirection: 'row',
-                                    justifyContent: 'space-between',
-                                    width: '100%'
-                                }}>
-                                    <h2 style={{
-                                        marginLeft: '20px',
-                                        marginRight: '20px',
-                                        marginTop: '0',
-                                        marginBottom: '0'
-                                    }}>2</h2>
-                                    <span style={{marginRight: '30px', fontSize: '12pt'}}>
-                                        Когда твой приглашенный начнет пользоваться сервисом, ты получишь скидку на оплату подписки в 25% от полной стоимости</span>
-                                </div>
-                            </div>
-
-                            <div className="device-box">
-                                <div className="device-flex" style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    flexDirection: 'row',
-                                    justifyContent: 'space-between',
-                                    width: '100%'
-                                }}>
-                                    <h2 style={{
-                                        marginLeft: '20px',
-                                        marginRight: '20px',
-                                        marginTop: '0',
-                                        marginBottom: '0'
-                                    }}>3</h2>
-                                    <span style={{marginRight: '30px', fontSize: '12pt'}}>
-                                        Скидки от нескольких приглашенных складываются (не более 100%), время проведения акции не ограничено</span>
-                                </div>
-                            </div>
-
-                            <div className="device-box">
-                                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                                    <div
-                                        className="qr-code"
-                                        onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
-                                        style={{marginRight: '5px'}}
-                                    >
-                                        <QRCodeCanvas
-                                            value={"https://gostlink.ru/?token=" + Refferal}
-                                            size={180}
-                                            bgColor={"#FFFFFF"}
-                                            fgColor={"#000000"}
-                                            level={"H"}
-                                            marginSize={4}
-                                            // imageSettings={{
-                                            //     src: "/logo512.png",
-                                            //     height: 36,
-                                            //     width: 36,
-                                            //     excavate: true,
-                                            // }}
-                                        />
-                                    </div>
-
-                                    <div style={{marginLeft: '5px', textAlign: 'center'}}>
-                                        <button
-                                            onClick={() => handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
-                                            style={buttonStyle}
-                                        >
-                                            Поделиться
-                                        </button>
-                                        <button
-                                            onClick={() => copyToClipboard("https://gostlink.ru/?token=" + Refferal)}
-                                            style={buttonStyle}
-                                        >
-                                            Скопировать ссылку
-                                        </button>
-                                        <button
-                                            onClick={handleDownload}
-                                            style={buttonStyle}
-                                        >
-                                            Скачать QR код
-                                        </button>
-                                    </div>
-                                </div>
+                            <div style={{marginLeft: '30px', textAlign: 'center', width: '200px'}}>
+                                <button className='button_dark' onClick={() => handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}>
+                                    Поделиться
+                                </button>
+                                <button className='button_dark' onClick={() => copyToClipboard("https://gostlink.ru/?token=" + Refferal)}>
+                                    Скопировать ссылку
+                                </button>
+                                <button className='button_dark' onClick={handleDownload}>
+                                    Скачать QR код
+                                </button>
                             </div>
                         </div>
                     </div>
-                ) : (
-                    <div>Загрузка...</div>
-                )}
+                </div>
+            ) : (
+                <div>Загрузка...</div>
+            )}
         </div>
     );
 }
-
-const buttonStyle = {
-    display: 'block',
-    width: '100%',
-    backgroundColor: '#111821',
-    color: 'white',
-    padding: '12px',
-    borderRadius: '12px',
-    marginTop: '8px',
-    cursor: 'pointer',
-    boxShadow: '0 5px 20px 0px rgb(22 31 43 / 43%)',
-    border: 'none',
-    textAlign: 'center'
-};
 
 export default Promo;

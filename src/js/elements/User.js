@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../css/App.css';
-import '../css/User.css';
-import '../languages/i18n';
+import '../../css/App.css';
+import '../../css/User.css';
+import '../../languages/i18n';
 import { useNavigate } from "react-router-dom";
-import DefaultProfilePhoto from "../images/profile.svg";
-import '../css/custom-toast.css';
+import DefaultProfilePhoto from "../../images/profile.svg";
 import 'react-toastify/dist/ReactToastify.css';
 
 function User() {

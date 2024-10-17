@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import User from "./User";
 import {BsStars} from "react-icons/bs";
-import '../css/Pricing.css'
+import '../../css/Pricing.css'
 
 const Pricing = () => {
 

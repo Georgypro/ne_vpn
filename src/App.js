@@ -10,7 +10,7 @@ import ShopVMobile from "./js/ShopVMobile";
 import Profile from "./js/Profile";
 import Promo from "./js/Promo";
 import YAuthMobile from "./registration/YAuthMobile";
-import Signature from "./js/Signature";
+import Signature from "./js/elements/Signature";
 import ProfileVMobile from "./js/ProfileVMobile";
 
 function App() {

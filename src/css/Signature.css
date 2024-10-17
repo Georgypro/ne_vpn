@@ -1,0 +1,43 @@
+.signature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+.full-line {
+    width: 90%;
+    max-width: 700px;
+    height: 1px;
+    border: 0;
+    color: #999999;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.support {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.support span {
+    color: white;
+    font-style: italic;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.company-info span {
+    color: #999999;
+    font-style: italic;
+    font-size: 12px;
+}
+
+@media (max-width: 800px) {
+    .support span {
+        font-size: 14px;
+    }
+}

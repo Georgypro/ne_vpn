@@ -1,10 +1,20 @@
-
-
 .row-main {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    width: 100%;
+}
+
+
+@media (max-width: 800px) {
+
+    .row-main {
+        width: 90% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
 }
 
 .card {
@@ -71,14 +81,6 @@
 }
 
 @media (max-width: 800px) {
-
-    .row-main {
-        width: 90% !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
     .card {
         width: 100%;
         max-width: 330px;
