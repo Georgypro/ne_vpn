@@ -11,6 +11,7 @@ import Profile from "./js/Profile";
 import Promo from "./js/Promo";
 import YAuthMobile from "./registration/YAuthMobile";
 import Signature from "./js/Signature";
+import ProfileVMobile from "./js/ProfileVMobile";
 
 function App() {
   return (
@@ -21,10 +22,10 @@ function App() {
               </div>
               <Router>
                   <Routes>
-                      {/*TODO no chakra test*/}
                       <Route path="/promo" element={<Promo/>}/>
                       <Route path="/profile" element={<Profile/>}/>
                       <Route path="/mobileShop" element={<ShopVMobile/>}/>
+                      <Route path="/mobileProfile" element={<ProfileVMobile/>}/>
                       <Route path="/yauth" element={<YAuth/>}/>
                       <Route path="/yauth-mobile" element={<YAuthMobile/>}/>
                       <Route path="/shop" element={<Shop/>}/>

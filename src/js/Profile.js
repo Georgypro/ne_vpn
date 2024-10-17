@@ -171,7 +171,7 @@ function Profile() {
                                     fontStyle: 'italic',
                                     fontSize: '18px'
                                 }}>
-                                    у тебя {availableDevices} не активированных устройств
+                                    у тебя {availableDevices} не активированных устройства
                                 </span> <br/>
                             <span>Скачай приложение</span> <br/>
                             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row'}}>

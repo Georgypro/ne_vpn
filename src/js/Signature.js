@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../css/App.css';
 import '../languages/i18n';
-import { useNavigate } from "react-router-dom";
-import DefaultProfilePhoto from "../images/profile.svg";
 import '../css/custom-toast.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {FaTelegramPlane} from "react-icons/fa";
@@ -10,11 +8,19 @@ import {IoIosMail} from "react-icons/io";
 
 function Signature() {
 
+    const formatEmail = (email) => {
+        return email
+            .replace(/@/g, '7ARH5OdXUl8erAZv')
+            .replace(/\./g, '4wIPiFXwd91gLO84');
+    };
+
+    const email = formatEmail(localStorage.getItem('email'));
+
     return (
         <div className="signateiner" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '40px'}}>
             <hr className='full-line'/>
             <div className="support" style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}
-                 onClick={() => window.open('https://t.me/gostlink_support_bot?start=' + localStorage.getItem('email'), '_blank')}>
+                 onClick={() => window.open('https://t.me/gostlink_support_bot?start=' + email, '_blank')}>
                 <span style={{
                     color: "white",
                     fontStyle: 'italic',
