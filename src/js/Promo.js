@@ -108,80 +108,134 @@ function Promo() {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="container-main">
             <ToastContainer toastStyle={{ color: '#ffffff', backgroundColor: '#333333' }} />
-            <div style={{ maxWidth: 'calc(2 * 330px + 2 * 16px)', width: '100%' }}>
                 <User />
 
                 {Refferal.length > 10 ? (
-                    <div className='device-box' >
-                        <div style={{ marginBottom: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1.1, marginBottom: '16px' }}>
-                                <BsStars size="60px" style={{ marginRight: '16px' }} />
-                                <p>Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!</p>
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1, height: '60px', marginBottom: '16px' }}>
-                                <PiStarFourFill size="60px" style={{ marginRight: '16px' }} />
-                                <p>Поделись своей ссылкой-приглашением со знакомым в любом удобном формате</p>
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1, height: '60px', marginBottom: '16px' }}>
-                                <PiStarFourFill size="60px" style={{ marginRight: '16px' }} />
-                                <p>Когда он начнет пользоваться сервисом, ты автоматически получишь скидку на оплату подписки в 25%</p>
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'flex-start', fontWeight: 'bold', lineHeight: 1, height: '60px', marginBottom: '16px' }}>
-                                <PiStarFourFill size="60px" style={{ marginRight: '16px' }} />
-                                <p>Скидки от нескольких приглашенных складываются, время проведения акции не ограничено</p>
-                            </div>
-                        </div>
+                    <div className="row-main">
+                        <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+                            <div className="device-box">
+                                <div className="device-flex" style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between',
+                                    width: '100%'
+                                }}>
+                                    <div className="device-icon" style={{
+                                        marginLeft: '15px',
+                                        marginRight: '15px',
+                                        display: 'flex',
+                                        alignItems: 'center'
+                                    }}>
+                                        <BsStars height="100%" width="100%"/>
+                                    </div>
+                                        <span style={{marginRight: '30px', fontSize: '12pt'}}>Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!</span>
+                                    </div>
+                                </div>
 
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <div
-                                className="qr-code"
-                                onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
-                                style={{ marginRight: '16px' }}
-                            >
-                                <QRCodeCanvas
-                                    value={"https://gostlink.ru/?token=" + Refferal}
-                                    size={300}
-                                    bgColor={"#FFFFFF"}
-                                    fgColor={"#000000"}
-                                    level={"H"}
-                                    includeMargin={true}
-                                    imageSettings={{
-                                        src: "/logo512.png",
-                                        height: 64,
-                                        width: 64,
-                                        excavate: true,
-                                    }}
-                                />
+                                <div className="device-box">
+                                    <div className="device-flex" style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        flexDirection: 'row',
+                                    justifyContent: 'space-between',
+                                    width: '100%'
+                                }}>
+                                    <h2 style={{marginLeft: '20px', marginRight: '20px', marginTop: '0', marginBottom: '0'}}>1</h2>
+                                    <span style={{marginRight: '30px', fontSize: '12pt'}}>Поделись своей уникальной ссылкой-приглашением в сервис GOSTLINK со знакомым, друзьями или семьей</span>
+                                </div>
                             </div>
 
-                            <div style={{ marginLeft: '16px', textAlign: 'center' }}>
-                                <button
-                                    onClick={() => handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
-                                    style={buttonStyle}
-                                >
-                                    Поделиться
-                                </button>
-                                <button
-                                    onClick={() => copyToClipboard("https://gostlink.ru/?token=" + Refferal)}
-                                    style={buttonStyle}
-                                >
-                                    Скопировать ссылку
-                                </button>
-                                <button
-                                    onClick={handleDownload}
-                                    style={buttonStyle}
-                                >
-                                    Скачать QR код
-                                </button>
+                            <div className="device-box">
+                                <div className="device-flex" style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between',
+                                    width: '100%'
+                                }}>
+                                    <h2 style={{
+                                        marginLeft: '20px',
+                                        marginRight: '20px',
+                                        marginTop: '0',
+                                        marginBottom: '0'
+                                    }}>2</h2>
+                                    <span style={{marginRight: '30px', fontSize: '12pt'}}>
+                                        Когда твой приглашенный начнет пользоваться сервисом, ты получишь скидку на оплату подписки в 25% от полной стоимости</span>
+                                </div>
+                            </div>
+
+                            <div className="device-box">
+                                <div className="device-flex" style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between',
+                                    width: '100%'
+                                }}>
+                                    <h2 style={{
+                                        marginLeft: '20px',
+                                        marginRight: '20px',
+                                        marginTop: '0',
+                                        marginBottom: '0'
+                                    }}>3</h2>
+                                    <span style={{marginRight: '30px', fontSize: '12pt'}}>
+                                        Скидки от нескольких приглашенных складываются (не более 100%), время проведения акции не ограничено</span>
+                                </div>
+                            </div>
+
+                            <div className="device-box">
+                                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                    <div
+                                        className="qr-code"
+                                        onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
+                                        style={{marginRight: '5px'}}
+                                    >
+                                        <QRCodeCanvas
+                                            value={"https://gostlink.ru/?token=" + Refferal}
+                                            size={180}
+                                            bgColor={"#FFFFFF"}
+                                            fgColor={"#000000"}
+                                            level={"H"}
+                                            marginSize={4}
+                                            // imageSettings={{
+                                            //     src: "/logo512.png",
+                                            //     height: 36,
+                                            //     width: 36,
+                                            //     excavate: true,
+                                            // }}
+                                        />
+                                    </div>
+
+                                    <div style={{marginLeft: '5px', textAlign: 'center'}}>
+                                        <button
+                                            onClick={() => handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
+                                            style={buttonStyle}
+                                        >
+                                            Поделиться
+                                        </button>
+                                        <button
+                                            onClick={() => copyToClipboard("https://gostlink.ru/?token=" + Refferal)}
+                                            style={buttonStyle}
+                                        >
+                                            Скопировать ссылку
+                                        </button>
+                                        <button
+                                            onClick={handleDownload}
+                                            style={buttonStyle}
+                                        >
+                                            Скачать QR код
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 ) : (
                     <div>Загрузка...</div>
                 )}
-            </div>
         </div>
     );
 }

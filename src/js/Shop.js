@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import '../languages/i18n';
 import Pricing from "./Pricing";
+import {useNavigate} from "react-router-dom";
 
 function Shop() {
-    const [imageExists, setImageExists] = useState(false);
-    const photoUrl = localStorage.getItem('photoURL');
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Dynamically load CloudPayments widget script
@@ -18,6 +18,12 @@ function Shop() {
         };
     }, []);
 
+    useEffect(() => {
+        if (localStorage.getItem('subscriptionIsActive') === 'true'){
+            navigate('/profile');
+        }
+    }, [navigate]);
+    
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <Pricing/>
