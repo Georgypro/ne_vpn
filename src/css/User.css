@@ -3,30 +3,39 @@
     width: 100%;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
 
-    /*border: solid 1px red;*/
+    border: solid 1px red;
 }
 
-.text-right {
+.text-block {
     text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
 
     /*border: solid 1px red;*/
 }
 
-.text-white {
+.text-info {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin: 0;
+
+    /*border: solid 1px red;*/
 }
 
 .text-lightgray {
     color: lightgray;
     font-style: italic;
     text-decoration: underline;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
+    margin: 0;
+
+    /*border: solid 1px red;*/
 }
 
 .profile-picture {
@@ -34,8 +43,7 @@
     height: 80px;
     background-color: white;
     border-radius: 50%;
-    margin-left: 30px;
-    margin-top: 10px;
+    margin: 0 0 0 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,4 +54,22 @@
     width: 90%;
     height: 90%;
     border-radius: 50%;
+}
+
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .text-block {
+        text-align: center;
+        height: 70px;
+    }
+
+    .profile-picture {
+        margin: 0 0 20px 0;
+    }
 }

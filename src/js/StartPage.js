@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import '../css/App.css';
+import '../css/StartPage.css';
 import '../languages/i18n';
-import '../css/Content.css';
 import { GoChevronRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import logo from "../images/logo.svg";

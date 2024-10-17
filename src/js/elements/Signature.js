@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/App.css';
+import '../../css/Signature.css';
 import '../../languages/i18n';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaTelegramPlane } from "react-icons/fa";
@@ -22,13 +22,14 @@ function Signature() {
                 <FaTelegramPlane style={{color: 'white'}}/>
             </div>
 
-            <div onClick={() => window.location.href = 'mailto:info@gostlink.ru'}>
+            <div className="support" onClick={() => window.location.href = 'mailto:info@gostlink.ru'}>
                 <span>Написать на почту info@gostlink.ru </span>
                 <IoIosMail style={{color: 'white'}}/>
             </div>
-
-            <span>© 2021 — 2024 ООО "Каннт"</span>
-            <span>ИНН: 4011033196</span>
+            <div className="company-info">
+                <span>© 2021 — 2024 ООО "Каннт" </span>
+                <span> ИНН: 4011033196</span>
+            </div>
         </div>
     );
 }

@@ -29,16 +29,16 @@ function User() {
 
     return (
         <div className="container">
-            <div className="text-right">
-                <p className="text-white" onClick={() => navigate('/profile')}>
+            <div className="text-block">
+                <p className="text-info" onClick={() => navigate('/profile')}>
                     {localStorage.getItem('email')}
                 </p>
                 {localStorage.getItem('subscriptionIsActive') === 'true' ? (
-                    <p className="text-white" onClick={() => navigate('/profile')}>
+                    <p className="text-info" onClick={() => navigate('/profile')}>
                         Подписка до: {localStorage.getItem('expirationDate')}
                     </p>
                 ) : (
-                    <p className="text-white" onClick={() => navigate('/profile')}>
+                    <p className="text-info" onClick={() => navigate('/profile')}>
                         {localStorage.getItem('expirationDate')}
                     </p>
                 )}
@@ -51,11 +51,7 @@ function User() {
                 {!imageExists ? (
                     <img src={DefaultProfilePhoto} alt="Profile" className="profile-image" />
                 ) : (
-                    <img
-                        src={photoUrl}
-                        alt="Profile"
-                        className="profile-image"
-                    />
+                    <img src={photoUrl} alt="Profile" className="profile-image"/>
                 )}
             </div>
         </div>
