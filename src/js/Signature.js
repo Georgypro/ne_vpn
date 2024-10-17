@@ -14,7 +14,7 @@ function Signature() {
         <div className="signateiner" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '40px'}}>
             <hr className='full-line'/>
             <div className="support" style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}
-                 onClick={() => window.open('https://t.me/gostlink_support_bot?start=GOSTLINK', '_blank')}>
+                 onClick={() => window.open('https://t.me/gostlink_support_bot?start=' + localStorage.getItem('email'), '_blank')}>
                 <span style={{
                     color: "white",
                     fontStyle: 'italic',
@@ -37,7 +37,6 @@ function Signature() {
                 }}>Написать на почту info@gostlink.ru </span>
                 <IoIosMail style={{color: 'white'}}/>
             </div>
-
 
             <span style={{color: '#999999', fontStyle: 'italic', fontSize: '16px', marginRight: '10px', marginTop: '10px'}}>© 2021 — 2024 ООО "Каннт"</span>
             <span style={{
