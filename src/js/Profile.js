@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/App.css';
 import '../languages/i18n';
-import {FaAndroid, FaApple, FaDesktop, FaGhost, FaLinux, FaPlus, FaWindows} from 'react-icons/fa';
+import {FaAndroid, FaApple, FaDesktop, FaGhost, FaLinux, FaPlus, FaMicrosoft} from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { useNavigate } from 'react-router-dom';
 import DefaultProfilePhoto from '../images/profile.svg';
@@ -93,13 +93,13 @@ function Profile() {
     const getPlatformIcon = (platform) => {
         switch (platform.toLowerCase()) {
             case 'android':
-                return <FaAndroid size={48} color="#222222" />;
+                return <IoLogoAndroid size='100%'/>;
             case 'ios':
-                return <FaApple size={48} color="#222222" />;
+                return <FaApple size='100%' />;
             case 'desktop':
-                return <FaDesktop size={48} color="#222222" />;
+                return <FaDesktop size='100%' />;
             default:
-                return <FaGhost size={48} color="#222222" />;
+                return <FaGhost size='100%' />;
         }
     };
 
@@ -121,24 +121,24 @@ function Profile() {
                 <div style={{width: '100%'}}>
                     {userData.subscriptionIsActive ? (
                         <div style={{width: '100%'}}>
-                            <span>
+                            <span className="device-title">
                                 Следующее списание {userData.amount} {userData.currency}
                             </span>
                             <div className="device-box" onClick={() => navigate('/promo')}>
                                 <div className="device-flex" >
                                     <div className="device-icon">
-                                        <MdDiscount size={48} color="#222222"/>
+                                        <MdDiscount size='100%'/>
                                     </div>
                                     <div className="device-info">
-                                        <span style={{color: 'black', fontStyle: 'italic', fontSize: '24px', marginLeft: '10px'}}>
+                                        <span className="device-title" style={{fontStyle: 'italic'}}>
                                             Пользуйся сервисом бесплатно!
                                         </span> <br/>
-                                        <span style={{color: '#222222', fontStyle: 'italic', fontSize: '18px'}}>
+                                        <span className="device-subtext" style={{fontStyle: 'italic'}}>
                                             твоя текущая скидка {userData.discount}%
                                         </span>
                                     </div>
                                     <div className="device-icon">
-                                        <IoIosArrowForward size={48} color="#222222"/>
+                                        <IoIosArrowForward size='100%'/>
                                     </div>
                                 </div>
                             </div>
@@ -149,19 +149,19 @@ function Profile() {
 
                     {availableDevices > 0 ? (
                         <div className="device-box">
-                            <span style={{color: 'black', fontStyle: 'italic', fontSize: '18px'}}>
+                            <span className="device-subtext" style={{color: 'black', fontStyle: 'italic'}}>
                                 у тебя {availableDevices} не активированных устройств
                             </span> <br/>
-                            <span>
-                                Скачай приложение
+                            <span className="device-title">
+                                Скачать приложение
                             </span> <br/>
-                            <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
+                            <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row', gap: '15px'}}>
                                 {/*TODO: add links to install files*/}
-                                <IoLogoAndroid size={66} color="#222222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <FaWindows size={48} color="#222222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <FaApple size={48} color="#222222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <FaLinux size={48} color="#222222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <SiMacos size={60} color="#222222" style={{marginRight: '15px'}} onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <IoLogoAndroid size={66} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaMicrosoft size={48} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaApple size={48} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaLinux size={48} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <SiMacos size={60} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
                             </div>
                         </div>
                     ) : (
@@ -178,15 +178,15 @@ function Profile() {
                                                 {getPlatformIcon(device.platform)}
                                             </div>
                                             <div className="device-info">
-                                                <p className="device-name">
+                                                <span className="device-title">
                                                     {device.deviceName.length > 20 ? `${device.deviceName.slice(0, 17)}...` : device.deviceName}
-                                                </p>
-                                                <p className="device-subtext">
+                                                </span> <br/>
+                                                <span className="device-subtext">
                                                     {device.deviceId.slice(0, 16)} - {formatDateTime(device.firstActivation)}
-                                                </p>
+                                                </span>
                                             </div>
-                                            <div className="device-cross">
-                                                <ImCross onClick={() => fetchUnblockDevice(device.id, device.deviceName)}/>
+                                            <div className="device-icon">
+                                                <ImCross size='50%' onClick={() => fetchUnblockDevice(device.id, device.deviceName)}/>
                                             </div>
                                         </div>
                                     </div>
@@ -202,18 +202,18 @@ function Profile() {
                             <div className="device-box" onClick={() => toast('Вызвать окошко?')}>
                                 <div className="device-flex">
                                     <div className="device-icon">
-                                        <FaPlus size={48} color="#222222"/>
+                                        <FaPlus size='80%'/>
                                     </div>
                                     <div className="device-info">
-                                        <span style={{color: 'black', fontStyle: 'italic', fontSize: '24px', margin: '0 30px'}}>
-                                            Добавить новое устройство?
+                                        <span className="device-title" style={{fontStyle: 'italic'}}>
+                                            Добавить устройство?
                                         </span> <br/>
-                                        <span style={{color: '#222222', fontStyle: 'italic', fontSize: '18px'}}>
+                                        <span className="device-subtext" style={{fontStyle: 'italic'}}>
                                             +128 рублей в месяц к подписке
                                         </span>
                                     </div>
                                     <div className="device-icon">
-                                        <IoIosArrowForward size={48} color="#222222"/>
+                                        <IoIosArrowForward size='100%'/>
                                     </div>
                                 </div>
                             </div>
@@ -221,7 +221,6 @@ function Profile() {
                     ) : (
                         <></>
                     )}
-
                 </div>
             ) : (
                 <>

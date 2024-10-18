@@ -18,11 +18,11 @@ function Shop() {
         };
     }, []);
 
-    useEffect(() => {
-        if (localStorage.getItem('subscriptionIsActive') === 'true'){
-            navigate('/profile');
-        }
-    }, [navigate]);
+    // useEffect(() => {
+    //     if (localStorage.getItem('subscriptionIsActive') === 'true'){
+    //         navigate('/profile');
+    //     }
+    // }, [navigate]);
     
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>

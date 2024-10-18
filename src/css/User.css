@@ -4,8 +4,10 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    margin-bottom: 50px;
+    margin-top: 30px;
 
-    border: solid 1px red;
+    /*border: solid 1px red;*/
 }
 
 .text-block {
@@ -62,6 +64,8 @@
         flex-direction: column-reverse;
         justify-content: flex-start;
         align-items: center;
+        margin-bottom: 30px;
+        margin-top: 20px;
     }
 
     .text-block {

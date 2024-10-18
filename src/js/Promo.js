@@ -8,6 +8,7 @@ import User from "./elements/User";
 import { QRCodeCanvas } from 'qrcode.react';
 import { PiStarFourFill } from "react-icons/pi";
 import { BsStars } from "react-icons/bs";
+import {ImCross} from "react-icons/im";
 
 function Promo() {
 
@@ -115,57 +116,60 @@ function Promo() {
                     <div className="device-box">
                         <div className="device-flex">
                             <div className="device-icon">
-                                <BsStars height="100%" width="100%"/>
+                                <BsStars size='100%'/>
                             </div>
-                            <span style={{marginRight: '30px', fontSize: '16px'}}>
-                                    Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!
-                                </span>
+                            <span className="device-description">
+                                Приглашай друзей и получай скидку вплоть до 100% к платежам за подписку!
+                            </span>
                         </div>
                     </div>
 
                     <div className="device-box">
                         <div className="device-flex">
-                            <h2>1</h2>
-                            <span style={{marginRight: '30px', fontSize: '16px'}}>
-                                    Поделись своей уникальной ссылкой-приглашением в сервис GOSTLINK со знакомым, друзьями или семьей
-                                </span>
+                            <div className="device-icon">
+                                <h2>1</h2>
+                            </div>
+                            <span className="device-description">
+                                Поделись своей уникальной ссылкой-приглашением в сервис GOSTLINK со знакомым, друзьями или семьей
+                            </span>
                         </div>
                     </div>
 
                     <div className="device-box">
                         <div className="device-flex">
-                            <h2>2</h2>
-                            <span style={{marginRight: '30px', fontSize: '16px'}}>
+                            <div className="device-icon">
+                                <h2>2</h2>
+                            </div>
+                            <span className="device-description">
                                     Когда твой приглашенный начнет пользоваться сервисом, ты получишь скидку на оплату подписки в 25% от полной стоимости
-                                </span>
+                            </span>
                         </div>
                     </div>
 
                     <div className="device-box">
                         <div className="device-flex">
-                            <h2>3</h2>
-                            <span style={{marginRight: '30px', fontSize: '16px'}}>
+                            <div className="device-icon">
+                                <h2>3</h2>
+                            </div>
+                            <span className="device-description">
                                     Скидки от нескольких приглашенных складываются (не более 100%), время проведения акции не ограничено
-                                </span>
+                            </span>
                         </div>
                     </div>
 
                     <div className="device-box">
-                        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <div className="qr-code"
-                                 onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}
-                                 style={{marginRight: '5px'}}>
+                        <div className="device-flex flex-change" style={{justifyContent: 'center', gap: '30px'}}>
+                            <div className="qr-code" onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}>
                                 <QRCodeCanvas
                                     value={"https://gostlink.ru/?token=" + Refferal}
-                                    size={180}
+                                    size={256} /* Размер, который будет подстраиваться */
                                     bgColor={"#FFFFFF"}
                                     fgColor={"#000000"}
                                     level={"H"}
                                     marginSize={4}
                                 />
                             </div>
-
-                            <div style={{marginLeft: '30px', textAlign: 'center', width: '200px'}}>
+                            <div style={{textAlign: 'center', width: '200px'}}>
                                 <button className='button_dark' onClick={() => handleShare("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}>
                                     Поделиться
                                 </button>
