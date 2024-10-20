@@ -62,15 +62,23 @@ function YAuthMobile() {
 
 
     if (loading) {
-        return <h1>Loading...</h1>;
+        return (
+            <div className="container-main">
+                <h1>Loading...</h1>
+            </div>
+        );
     }
 
     if (error) {
-        return <h1>{error}</h1>;
+        return (
+            <div className="container-main">
+                <h1>{error}</h1>
+            </div>
+        );
     }
 
     return (
-        <div>
+        <div className="container-main">
             <h1>Successfully logged in</h1>
         </div>
     );
