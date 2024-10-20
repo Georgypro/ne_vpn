@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import User from "./User";
 import {BsStars} from "react-icons/bs";
 import '../../css/Pricing.css'
 
@@ -179,52 +178,57 @@ const Pricing = () => {
     };
 
     return (
-        <div className="container-main">
-            <User />
-            <div className="row-main">
-                <div className="card">
-                    <div className="card-header">
-                        <span className="discount-badge" style={{backgroundColor: '#e6f4ea', color: '#2f855a'}}>Скидка 40%</span>
-                        <h3 className="card-title">Подписка на 2 устройства</h3>
-                        <div className="price">
-                            <span className="price-value">299</span>
-                            <span className="price-symbol">₽/мес</span>
-                        </div>
-                        <div className="price-old">498 ₽/мес</div>
+        <div className="row-main">
+            <div className="card">
+                <div className="card-header">
+                    <span className="discount-badge" style={{backgroundColor: '#e6f4ea', color: '#2f855a'}}>Скидка 40%</span>
+                    <h3 className="card-title">Подписка на 2 устройства</h3>
+                    <div className="price">
+                        <span className="price-value">299</span>
+                        <span className="price-symbol">₽/мес</span>
                     </div>
-                    <div className="card-body">
-                        <span className="feature"><BsStars/> ∞ GB/мес</span><br/>
-                        <span className="feature"><BsStars/> Безграничный доступ к иностранным сервисам</span><br/>
-                        <span className="feature"><BsStars/> Работают банки</span><br/>
-                        <span className="feature"><BsStars/> Без ограничений скорости</span><br/>
-                        <span className="feature"><BsStars/> Без рекламы</span>
-                        <button onClick={() => pay(299)} style={{marginTop: '30px'}} className="button_dark">Выбрать
-                        </button>
-                    </div>
+                    <div className="price-old">498 ₽/мес</div>
                 </div>
-
-                <div className="card">
-                    <div className="card-header">
-                        <span className="discount-badge" style={{backgroundColor: '#fefcbf', color: '#d69e2e'}}>Скидка 50%</span>
-                        <h3 className="card-title">Подписка на 3 устройства</h3>
-                        <div className="price">
-                            <span className="price-value">399</span>
-                            <span className="price-symbol">₽/мес</span>
-                        </div>
-                        <div className="price-old">799 ₽/мес</div>
-                    </div>
-                    <div className="card-body">
-                        <span className="feature"><BsStars/> ∞ GB/мес</span><br/>
-                        <span className="feature"><BsStars/> Безграничный доступ к иностранным сервисам</span><br/>
-                        <span className="feature"><BsStars/> Работают банки</span> <br/>
-                        <span className="feature"><BsStars/> Без ограничений скорости</span> <br/>
-                        <span className="feature"><BsStars/> Без рекламы</span>
-                        <button onClick={() => payYear(399)} style={{marginTop: '30px'}}
-                                className="button_dark">Выбрать
-                        </button>
-                    </div>
+                <div className="card-body">
+                    <table>
+                        <tr><td><BsStars class="icon" /></td>
+                            <td><span className="feature">∞ GB/мес</span></td></tr>
+                        <tr><td><BsStars class="icon" /></td>
+                            <td><span className="feature">Безграничный доступ к иностранным сервисам</span></td></tr>
+                        <tr><td><BsStars class="icon" /></td>
+                            <td><span className="feature">Работают банки</span></td></tr>
+                        <tr><td><BsStars class="icon" /></td>
+                            <td><span className="feature">Без ограничений скорости</span></td></tr>
+                        <tr><td><BsStars class="icon" /></td>
+                            <td><span className="feature">Без рекламы</span></td></tr>
+                    </table>
+                    <button onClick={() => pay(299)} style={{marginTop: '30px', maxWidth: '300px', width: '100%'}} className="button_dark">
+                        Выбрать
+                    </button>
                 </div>
             </div>
+
+            {/*<div className="card">*/}
+            {/*    <div className="card-header">*/}
+            {/*        <span className="discount-badge" style={{backgroundColor: '#fefcbf', color: '#d69e2e'}}>Скидка 50%</span>*/}
+            {/*        <h3 className="card-title">Подписка на 3 устройства</h3>*/}
+            {/*        <div className="price">*/}
+            {/*            <span className="price-value">399</span>*/}
+            {/*            <span className="price-symbol">₽/мес</span>*/}
+            {/*        </div>*/}
+            {/*        <div className="price-old">799 ₽/мес</div>*/}
+            {/*    </div>*/}
+            {/*    <div className="card-body">*/}
+            {/*        <span className="feature"><BsStars/> ∞ GB/мес</span><br/>*/}
+            {/*        <span className="feature"><BsStars/> Безграничный доступ к иностранным сервисам</span><br/>*/}
+            {/*        <span className="feature"><BsStars/> Работают банки</span> <br/>*/}
+            {/*        <span className="feature"><BsStars/> Без ограничений скорости</span> <br/>*/}
+            {/*        <span className="feature"><BsStars/> Без рекламы</span>*/}
+            {/*        <button onClick={() => payYear(399)} style={{marginTop: '30px'}}*/}
+            {/*                className="button_dark">Выбрать*/}
+            {/*        </button>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     );
 }

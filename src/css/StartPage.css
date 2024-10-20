@@ -1,53 +1,62 @@
-.Content {
+.page-block {
+    display: block;
+}
+
+#header-site {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+#logo-site {
+    width: 60px;
+}
+
+#title-site {
+    font-weight: bold;
+    font-size: 60px;
+    margin: 0;
+}
+
+#description-site {
+    font-size: 20px;
+}
+
+.content {
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    /*height: 100vh;*/
+    align-items: flex-start;
 }
 
-.Content:not(:last-child) {
-    /*margin-bottom: 30px;*/
-}
-
-
-#LogoSite {
-    width: 80px;
-}
-
-#TitleSite {
-    font-size: 70px;
-    margin: 0 0 0 0;
-    background: white;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-#DescriptionSite {
-    font-size: 25px;
-    background: white;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-#Description {
+#description {
     text-align: left;
     width: 40%;
     max-width: 450px;
-    min-height: 500px;
     margin-left: 40px;
+
+    /*border: solid 1px red;*/
 }
 
-.DescriptionElement {
+.description-element {
     display: flex;
     flex-direction: column;
 }
 
-.DescriptionElement:not(:last-child) {
+.description-element:not(:last-child) {
     margin-bottom: 30px;
 }
 
-.TitleDescription {
+.description-element p {
+    font-size: 16px;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.title-description {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -55,32 +64,23 @@
     cursor: pointer;
 }
 
-.TitleDescription h1 {
+.title-description h1 {
     margin: 0;
-    font-weight: normal;
-    background: white;
-    -webkit-background-clip: text;
-    color: transparent;
+    font-size: 36px;
+    font-weight: bold;
 }
 
-.DescriptionText {
+.description-text {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     opacity: 0;
 }
 
-.DescriptionText.active {
+.description-text.active {
     max-height: 200px;
     opacity: 1;
     transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
-}
-
-.DescriptionElement p {
-    font-size: 18px;
-    margin-top: 10px;
-    width: 90%;
-    color: white;
 }
 
 .icon {
@@ -93,12 +93,16 @@
 }
 
 
-#RegistrationBlock {
+
+
+
+#registration-block {
     width: 40%;
     height: 100%;
-    min-height: 500px;
+    min-height: 300px;
     margin-left: 50px;
     margin-right: 10px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,209 +110,111 @@
     overflow-y: auto;
     position: relative;
     flex-direction: column;
+
+    /*border: solid 1px red;*/
 }
 
-#RegistrationBlock h2 {
-    font-size: 36px;
-    background: white;
-    -webkit-background-clip: text;
-    color: transparent;
+#registration-block h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
 }
 
-.RegistrationButton {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    justify-items: center;
-    align-items: center;
-    width: 50%;
-    height: 46px;
-    border-radius: 25px;
-    border: none;
-    margin: 10px;
-    padding: 0;
+#registration-block span {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 20px;
 }
 
-.RegistrationButton:hover {
-    cursor: pointer;
-}
-
-.RegistrationBlock_logo {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    background-color: transparent;
-    margin: 8px;
-}
-
-.Line {
+.line {
     width: 40%;
     height: 1px;
     border: 0;
     background: linear-gradient(to right, rgba(256, 256, 256, 0) 0%, rgba(256, 256, 256, 1) 50%, rgba(256, 256, 256, 1) 100%);
 }
 
-
-/*@media (min-width: 851px) and (max-width: 1200px) {*/
-/*    #TitleSite {*/
-/*        color: firebrick;*/
-/*    }*/
-/*}*/
-
 @media (max-width: 850px) {
-    #TitleSite {
-        color: lightseagreen;
-    }
-
-    .ColumnContent {
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
-        padding: 0;
-    }
-
-    .Content:not(:last-child) {
-        /*margin-bottom: 30px;*/
-    }
-
-
-    #LogoSite {
-        width: 70px;
-    }
-
-    #TitleSite {
-        font-size: 50px;
-        margin-right: 5px;
-        background: white;
-        -webkit-background-clip: text;
-        color: transparent;
-    }
-
-    #DescriptionSite {
-        font-size: 20px;
-        background: #f0f7f7;
-        -webkit-background-clip: text;
-        color: transparent;
-    }
-
-    #Description {
-        text-align: left;
-        width: 90%;
-        height: auto;
-        margin: auto;
-        max-width: none;
-        min-height: 0;
-    }
-
-    .DescriptionElement {
+    .page-block {
         display: flex;
         flex-direction: column;
-    }
-
-    .DescriptionElement:not(:last-child) {
-        margin-bottom: 30px;
-    }
-
-    .TitleDescription {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         align-items: center;
-        cursor: pointer;
     }
 
-    .TitleDescription h1 {
-        font-size: 36px;
-        margin: 0;
-        font-weight: normal;
-        background: #f0f7f7;
-        -webkit-background-clip: text;
-        color: transparent;
+    #header-site {
+        margin-top: 20px;
+        margin-bottom: 50px;
     }
 
-    .DescriptionText {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-        opacity: 0;
+    #logo-site {
+        width: 40px;
     }
 
-    .DescriptionText.active {
-        max-height: 200px;
-        opacity: 1;
-        transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+    #title-site {
+        font-size: 46px;
     }
 
-    .DescriptionElement p {
-        font-size: 18px;
-        margin-top: 10px;
+    #description-site {
+        font-size: 16px;
+    }
+
+    .content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #description {
         width: 90%;
-        background: transparent;
+        margin-left: 0;
+    }
+
+    .description-element {
+    }
+
+    .description-element:not(:last-child) {
+    }
+
+    .description-element p {
+        font-size: 14px;
+    }
+
+    .title-description {
+    }
+
+    .title-description h1 {
+        font-size: 32px;
+    }
+
+    .description-text {
+    }
+
+    .description-text.active {
     }
 
     .icon {
-        font-size: 30px;
-        transition: transform 0.5s ease;
     }
 
     .icon.rotated {
-        transform: rotate(90deg);
     }
 
 
-    #RegistrationBlock {
-        width: 90%;
+
+
+
+    #registration-block {
+        width: 95%;
         height: auto;
         min-height: 0;
-        margin: auto auto 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
-        overflow-y: auto;
-        position: relative;
-        flex-direction: column;
+        margin: 20px 0 50px;
 
-        /*border: solid 1px red;*/
     }
 
-    #RegistrationBlock h2 {
-        font-size: 36px;
-        background: #f0f7f7;
-        -webkit-background-clip: text;
-        color: transparent;
+    #registration-block h2 {
+        font-size: 24px;
     }
 
-    .RegistrationButton {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 70%;
-        height: 46px;
-        border-radius: 25px;
-        border: none;
-        margin: 10px;
-        padding: 0;
+    #registration-block span {
+        font-size: 20px;
     }
 
-    .RegistrationButton:hover {
-        cursor: pointer;
-    }
-
-    .RegistrationBlock_logo {
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        background-color: transparent;
-        margin: 8px;
-    }
-
-    .Line {
-        width: 40%;
-        height: 1px;
-        border: 0;
-        background: linear-gradient(to right, rgba(256, 256, 256, 0) 0%, rgba(256, 256, 256, 1) 50%, rgba(256, 256, 256, 1) 100%);
+    .line {
     }
 }

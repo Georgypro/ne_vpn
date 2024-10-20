@@ -4,7 +4,7 @@ import '../languages/i18n';
 import { GoChevronRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import logo from "../images/logo.svg";
-import SignInButton from "../registration/SignInButton";
+import SignInButton from "./elements/SignInButton";
 import {useLocation, useNavigate} from "react-router-dom";
 import Yandex from "../images/YandexLogo.svg";
 import YandexAuth from "../registration/YandexAuth";
@@ -30,45 +30,37 @@ function StartPage() {
     };
 
     return (
-        <div>
-            <div className="Content" style={{marginTop: '30px'}}>
-                <h1 id="TitleSite">GOSTLINK</h1>
-                <img style={{marginLeft:'5px'}} src={logo} id="LogoSite"/>
+        <div className='page-block'>
+            <div id='header-site'>
+                <div style={{display: 'flex', flexDirection: 'row', gap: '30px'}}>
+                    <h1 id="title-site">GOSTLINK</h1>
+                    <img src={logo} id="logo-site"/>
+                </div>
+                <span id="description-site">Самый быстрый в обитаемой вселенной!</span>
             </div>
-            <div className="Content" style={{height: '5vh', marginBottom: '30px', marginTop: '10px'}}>
-                <span id="DescriptionSite">Самый быстрый в обитаемой вселенной!</span>
-            </div>
-            <div className="Content ColumnContent" style={{alignItems: "flex-start", marginBottom: '20px'}}>
-                <div id="Description">
+            <div className="content">
+                <div id="description">
                     {descriptions.map((item, index) => (
-                        <div className="DescriptionElement" key={index}>
-                            <div className="TitleDescription" onClick={() => handleToggle(index)}>
+                        <div className="description-element" key={index}>
+                            <div className="title-description" onClick={() => handleToggle(index)}>
                                 <h1>{item.title}</h1>
-                                <GoChevronRight color='#93959E'
-                                                className={`icon ${activeIndex === index ? 'rotated' : ''}`}/>
+                                <GoChevronRight className={`icon ${activeIndex === index ? 'rotated' : ''}`}/>
                             </div>
-                            <div className={`DescriptionText ${activeIndex === index ? 'active' : ''}`}>
+                            <div className={`description-text ${activeIndex === index ? 'active' : ''}`}>
                                 <p style={{marginBottom: '0'}}>{item.text}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div id="RegistrationBlock">
-                    <span>Войти с помощью:</span>
+                <div id="registration-block">
+                    <h2>Войти с помощью:</h2>
                     <SignInButton/>
-                    <div style={{
-                        width: '80%',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                    }}>
-                        <hr className='Line'/>
-                        <p style={{margin: '10px'}}>или</p>
-                        <hr style={{rotate: '180deg'}} className='Line'/>
+                    <div style={{margin: '10px', width: '80%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                        <hr className='line'/>
+                        <span>или</span>
+                        <hr style={{rotate: '180deg'}} className='line'/>
                     </div>
-
                     <YandexAuth/>
                 </div>
             </div>

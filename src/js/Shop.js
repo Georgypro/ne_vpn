@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import '../languages/i18n';
 import Pricing from "./elements/Pricing";
 import {useNavigate} from "react-router-dom";
+import User from "./elements/User";
+
 
 function Shop() {
     const navigate = useNavigate();
@@ -25,7 +27,8 @@ function Shop() {
     // }, [navigate]);
     
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <div className="container-main">
+            <User />
             <Pricing/>
         </div>
     );
