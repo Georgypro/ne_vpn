@@ -162,7 +162,7 @@ function Promo() {
                             <div className="qr-code" onClick={() => handleShareQr("Сервис gostlink для безопасного и быстрого доступа в интернет ", "https://gostlink.ru/?token=" + Refferal)}>
                                 <QRCodeCanvas
                                     value={"https://gostlink.ru/?token=" + Refferal}
-                                    size={256} /* Размер, который будет подстраиваться */
+                                    size={256}
                                     bgColor={"#FFFFFF"}
                                     fgColor={"#000000"}
                                     level={"H"}
