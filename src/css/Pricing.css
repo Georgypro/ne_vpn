@@ -31,6 +31,59 @@
     color: #333;
 }
 
+.card-promotion {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-style: italic;
+    background-color: #f0f4f7;
+    color: #333;
+}
+
+.card-promotion-complete {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-style: italic;
+    background-color: #f0f4f7;
+    color: #333;
+}
+
+.card-promotion:hover {
+    background-color: #E6EBEE;
+    cursor: pointer;
+}
+
+.card-promotion:focus {
+    background-color: #E6EBEE;
+    outline: none;
+}
+
+.card-input {
+
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-style: italic;
+    background-color: #E6EBEE;
+    color: #333;
+}
+
+.promo-input {
+    background-color: #D4DADD;
+    color: #333333;
+    border: none;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    outline: none;
+    width: 30%;
+    caret-color: #333333;
+    caret-shape: underscore;
+}
+
+
 .discount-badge {
     padding: 5px;
     border-radius: 10px;
@@ -89,6 +142,23 @@
 
 .icon {
     width: 20px;
+}
+
+.go-icon {
+    display: flex;
+    justify-content: center;
+    color: #333333;
+    width: 6%;
+    min-width: 10px;
+    cursor: pointer;
+}
+
+.input-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 
 td, th, table {
