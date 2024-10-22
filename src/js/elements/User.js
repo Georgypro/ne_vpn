@@ -27,6 +27,22 @@ function User() {
         }
     }, [photoUrl]);
 
+    const goLogOut = () => {
+        const data = {
+            success: true,
+            reason: 'no_reason'
+        };
+        navigate('/');
+        window.kmpJsBridge.callNative(
+            "LogOut",
+            JSON.stringify(data),
+            function (data) {
+                document.getElementById("subtitle").innerText = data;
+                console.log("Response from Native: " + data);
+            }
+        );
+    }
+
     return (
         <div className="container">
             <div className="text-block">
@@ -42,7 +58,7 @@ function User() {
                         {localStorage.getItem('expirationDate')}
                     </p>
                 )}
-                <p className="text-lightgray" onClick={() => navigate('/')}>
+                <p className="text-lightgray" onClick={() => goLogOut()}>
                     сменить аккаунт
                 </p>
             </div>

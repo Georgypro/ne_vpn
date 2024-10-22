@@ -21,6 +21,11 @@
     flex-direction: row;
     align-items: center;
     margin-bottom: 5px;
+    text-decoration: underline;
+}
+
+.support:hover {
+    cursor: pointer;
 }
 
 .support span {
@@ -34,6 +39,20 @@
     color: #999999;
     font-style: italic;
     font-size: 12px;
+}
+
+.company-files span {
+    color: #999999;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.company-files:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 800px) {

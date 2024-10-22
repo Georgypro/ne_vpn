@@ -28,7 +28,11 @@ function Signature() {
             </div>
             <div className="company-info">
                 <span>© 2021 — 2024 ООО "Каннт" </span>
-                <span> ИНН: 4011033196</span>
+                <span> ИНН: 4011033196</span><br/>
+            </div>
+
+            <div className="company-files" onClick={() => window.open('https://gostlink.ru/docs/oferta_kannt.pdf', '_blank')}>
+                <span >публичная офера</span>
             </div>
         </div>
     );

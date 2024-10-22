@@ -157,11 +157,11 @@ function Profile() {
                             </span> <br/>
                             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row', gap: '15px'}}>
                                 {/*TODO: add links to install files*/}
-                                <IoLogoAndroid size={66} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <FaMicrosoft size={48} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <FaApple size={48} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <FaLinux size={48} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
-                                <SiMacos size={60} color="#222222" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <IoLogoAndroid size={66} color="#222222" onClick={() => () => window.open('https://gostlink.ru/apps/gostlink.apk', '_blank')}/>
+                                <FaMicrosoft size={48} color="#777777" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaApple size={48} color="#777777" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <FaLinux size={48} color="#777777" onClick={() => toast('Приложение для этой платформы в разработке')}/>
+                                <SiMacos size={60} color="#777777" onClick={() => toast('Приложение для этой платформы в разработке')}/>
                             </div>
                         </div>
                     ) : (
@@ -198,7 +198,7 @@ function Profile() {
                     )}
 
                     {availableDevices === 0 && availableDevices < 5 ? (
-                        <div onClick={() => toast.error('ОТКРЫЛАСЯ ДОКУПОЧКА')}>
+                        <div onClick={() => toast.error('Изменение подписки с добавлением нового устройства. Не работает с тестовым эквайрингом.')}>
                             <div className="device-box" onClick={() => toast('Вызвать окошко?')}>
                                 <div className="device-flex">
                                     <div className="device-icon">

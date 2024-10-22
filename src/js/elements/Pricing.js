@@ -179,113 +179,113 @@ const Pricing = () => {
             });
     };
 
-    return (
-        <div className="row-main">
-            { shopData.success ? (
-                <div className="card">
-                    {shopData.firstPayment === shopData.monthlyPayment ? (
-                        <div className="card-header">
-                            <span className="discount-badge" style={{
-                                backgroundColor: '#e6f4ea',
-                                color: '#2f855a'
-                            }}>Скидка {shopData.discount}%</span>
-                            <h3 className="card-title">Месячная подписка</h3>
-                            <div className="price">
-                                <span className="price-value">{shopData.firstPayment} </span><br/>
-                                <span className="price-symbol">₽/мес</span>
-                            </div>
-                            <div className="price-old">{shopData.strikethroughPrice} ₽/мес</div>
+return (
+    <div className="row-main">
+        { shopData.success ? (
+            <div className="card">
+                {shopData.firstPayment === shopData.monthlyPayment ? (
+                    <div className="card-header">
+                        <span className="discount-badge" style={{
+                            backgroundColor: '#e6f4ea',
+                            color: '#2f855a'
+                        }}>Скидка {shopData.discount}%</span>
+                        <h3 className="card-title">Месячная подписка</h3>
+                        <div className="price">
+                            <span className="price-value">{shopData.firstPayment} </span><br/>
+                            <span className="price-symbol">₽/мес</span>
                         </div>
-                    ) : (
-                        <div className="card-header">
-                            <span className="discount-badge" style={{
-                                backgroundColor: '#e6f4ea',
-                                color: '#2f855a'
-                            }}>Скидка {shopData.discount}%</span>
-                            <h3 className="card-title">Месячная подписка</h3>
-                            <div className="price">
-                                <span className="price-value">Первый месяц {shopData.firstPayment} </span><br/>
-                                <span className="price-symbol">₽</span>
-                            </div>
-                            <div className="price">
-                                <span className="price-value">Далее {shopData.monthlyPayment} </span><br/>
-                                <span className="price-symbol">₽/мес</span>
-                            </div>
-                            <div className="price-old">{shopData.strikethroughPrice} ₽/мес</div>
-                        </div>
-                    )}
-                    <div className="card-body">
-                        <table>
-                            <tr><td><BsStars class="icon"/></td><td><span className="feature">∞ GB и без ограничений скорости</span></td></tr>
-                            <tr><td><BsStars class="icon"/></td><td><span className="feature">Доступ к иностранным сервисам</span></td></tr>
-                            <tr><td><BsStars class="icon"/></td><td><span className="feature">Работают российские банки</span></td></tr>
-                            <tr><td><BsStars class="icon"/></td><td><span className="feature">Без рекламы в приложении</span></td></tr>
-                        </table>
+                        <div className="price-old">{shopData.strikethroughPrice} ₽/мес</div>
                     </div>
-                    {shopData.promoActivated === false ? (
-                        <>
-                        {isPromoInput ? (
-                            <div className="card-input">
-                                <div className="input-flex">
-                                    <span style={{marginRight: '5px'}}>Введи промокод: </span>
-                                    <input
-                                        className="promo-input"
-                                        type="text"
-                                        value={promo}
-                                        onChange={(e) => {
-                                            let newValue = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-                                            setPromo(newValue);
-                                        }}
-                                        inputMode="text"
-                                        onKeyDown={(e) => {
-                                            // console.log(e.key);
-                                            if (e.key === 'Enter') {
-                                                fetchPromo();
-                                            }
-                                        }}
-                                        onBlur={() => {
-                                            fetchPromo();
-                                        }}
-                                    />
-                                        <div className="go-icon" onClick={() => fetchPromo()}>
-                                            <HiOutlineArrowSmallRight
-                                                style={{height: '30px', width: '30px'}}/>
-                                        </div>
-                                </div>
-                                <div>
-                                    { msgFromPromo.length > 1 ? (
-                                        <span style={{color: 'red'}}>{msgFromPromo}</span>
-                                    ) : (
-                                        <></>
-                                    )}
-                                </div>
-                                </div>
-                                ) : (
-                                <div onClick={() => setIsPromoInput(true)} className="card-promotion">
-                                    <span>Есть промокод?</span>
-                                </div>
-                                )}
-                            </>
-                        ) : (
-                            <div onClick={() => setIsPromoInput(true)} className="card-promotion-complete">
-                            <span style={{color: 'green'}}>Промокод успешно активирован</span>
+                ) : (
+                    <div className="card-header">
+                        <span className="discount-badge" style={{
+                            backgroundColor: '#e6f4ea',
+                            color: '#2f855a'
+                        }}>Скидка {shopData.discount}%</span>
+                        <h3 className="card-title">Месячная подписка</h3>
+                        <div className="price">
+                            <span className="price-value">Первый месяц {shopData.firstPayment} </span><br/>
+                            <span className="price-symbol">₽</span>
                         </div>
-                    )}
-                    <div className="card-body">
-                        <button onClick={() => pay(shopData.firstPayment, shopData.monthlyPayment)}
-                                    style={{marginTop: '0', maxWidth: '300px', width: '100%'}}
-                                    className="button_dark">
-                                Оплатить
-                            </button>
+                        <div className="price">
+                            <span className="price-value">Далее {shopData.monthlyPayment} </span><br/>
+                            <span className="price-symbol">₽/мес</span>
                         </div>
+                        <div className="price-old">{shopData.strikethroughPrice} ₽/мес</div>
                     </div>
-                    ) : (
-                    <span>Loading...</span>
-                    )}
-
+                )}
+                <div className="card-body">
+                    <table>
+                        <tr><td><BsStars class="icon"/></td><td><span className="feature">∞ GB и без ограничений скорости</span></td></tr>
+                        <tr><td><BsStars class="icon"/></td><td><span className="feature">Доступ к иностранным сервисам</span></td></tr>
+                        <tr><td><BsStars class="icon"/></td><td><span className="feature">Работают российские банки</span></td></tr>
+                        <tr><td><BsStars class="icon"/></td><td><span className="feature">Без рекламы в приложении</span></td></tr>
+                    </table>
                 </div>
+                {shopData.promoActivated === false ? (
+                    <>
+                    {isPromoInput ? (
+                        <div className="card-input">
+                            <div className="input-flex">
+                                <span style={{marginRight: '5px'}}>Введи промокод: </span>
+                                <input
+                                    className="promo-input"
+                                    type="text"
+                                    value={promo}
+                                    onChange={(e) => {
+                                        let newValue = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                                        setPromo(newValue);
+                                    }}
+                                    inputMode="text"
+                                    onKeyDown={(e) => {
+                                        // console.log(e.key);
+                                        if (e.key === 'Enter') {
+                                            fetchPromo();
+                                        }
+                                    }}
+                                    onBlur={() => {
+                                        fetchPromo();
+                                    }}
+                                />
+                                    <div className="go-icon" onClick={() => fetchPromo()}>
+                                        <HiOutlineArrowSmallRight
+                                            style={{height: '30px', width: '30px'}}/>
+                                    </div>
+                            </div>
+                            <div>
+                                { msgFromPromo.length > 1 ? (
+                                    <span style={{color: 'red'}}>{msgFromPromo}</span>
+                                ) : (
+                                    <></>
+                                )}
+                            </div>
+                            </div>
+                            ) : (
+                            <div onClick={() => setIsPromoInput(true)} className="card-promotion">
+                                <span>Есть промокод?</span>
+                            </div>
+                            )}
+                        </>
+                ) : (
+                    <div onClick={() => setIsPromoInput(true)} className="card-promotion-complete">
+                        <span style={{color: 'green'}}>Промокод успешно активирован</span>
+                    </div>
+                )}
+                <div className="card-body">
+                    <button onClick={() => pay(shopData.firstPayment, shopData.monthlyPayment)}
+                                style={{marginTop: '0', maxWidth: '300px', width: '100%'}}
+                                className="button_dark">
+                            Оплатить
+                    </button>
+                </div>
+            </div>
+        ) : (
+            <span>Loading...</span>
+        )}
 
-            );
-            }
+    </div>
 
-            export default Pricing;
+);
+}
+
+export default Pricing;
