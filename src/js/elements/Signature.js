@@ -31,7 +31,9 @@ function Signature() {
                 <span> ИНН: 4011033196</span><br/>
             </div>
 
-            <div className="company-files" onClick={() => window.open('https://gostlink.ru/docs/oferta_kannt.pdf', '_blank')}>
+            <div className="company-files" onClick={() => {
+                window.open('https://gostlink.ru/get/docs/oferta_kannt.pdf', '_blank');
+            }}>
                 <span >публичная офера</span>
             </div>
         </div>

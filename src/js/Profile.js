@@ -124,24 +124,24 @@ function Profile() {
                             <span className="device-title">
                                 Следующее списание {userData.amount} {userData.currency}
                             </span>
-                            <div className="device-box" onClick={() => navigate('/promo')}>
-                                <div className="device-flex" >
-                                    <div className="device-icon">
-                                        <MdDiscount size='100%'/>
-                                    </div>
-                                    <div className="device-info">
-                                        <span className="device-title" style={{fontStyle: 'italic'}}>
-                                            Пользуйся сервисом бесплатно!
-                                        </span> <br/>
-                                        <span className="device-subtext" style={{fontStyle: 'italic'}}>
-                                            твоя текущая скидка {userData.discount}%
-                                        </span>
-                                    </div>
-                                    <div className="device-icon">
-                                        <IoIosArrowForward size='100%'/>
-                                    </div>
-                                </div>
-                            </div>
+                            {/*<div className="device-box" onClick={() => navigate('/promo')}>*/}
+                            {/*    <div className="device-flex" >*/}
+                            {/*        <div className="device-icon">*/}
+                            {/*            <MdDiscount size='100%'/>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="device-info">*/}
+                            {/*            <span className="device-title" style={{fontStyle: 'italic'}}>*/}
+                            {/*                Пользуйся сервисом бесплатно!*/}
+                            {/*            </span> <br/>*/}
+                            {/*            <span className="device-subtext" style={{fontStyle: 'italic'}}>*/}
+                            {/*                твоя текущая скидка {userData.discount}%*/}
+                            {/*            </span>*/}
+                            {/*        </div>*/}
+                            {/*        <div className="device-icon">*/}
+                            {/*            <IoIosArrowForward size='100%'/>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                         </div>
                     ) : (
                         <></>
@@ -157,7 +157,7 @@ function Profile() {
                             </span> <br/>
                             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'row', gap: '15px'}}>
                                 {/*TODO: add links to install files*/}
-                                <IoLogoAndroid size={66} color="#222222" onClick={() => () => window.open('https://gostlink.ru/apps/gostlink.apk', '_blank')}/>
+                                <IoLogoAndroid size={66} color="#222222" onClick={() => window.open('https://gostlink.ru/get/apps/gostlink.apk', '_blank')}/>
                                 <FaMicrosoft size={48} color="#777777" onClick={() => toast('Приложение для этой платформы в разработке')}/>
                                 <FaApple size={48} color="#777777" onClick={() => toast('Приложение для этой платформы в разработке')}/>
                                 <FaLinux size={48} color="#777777" onClick={() => toast('Приложение для этой платформы в разработке')}/>
@@ -199,7 +199,7 @@ function Profile() {
 
                     {availableDevices === 0 && availableDevices < 5 ? (
                         <div onClick={() => toast.error('Изменение подписки с добавлением нового устройства. Не работает с тестовым эквайрингом.')}>
-                            <div className="device-box" onClick={() => toast('Вызвать окошко?')}>
+                            <div className="device-box">
                                 <div className="device-flex">
                                     <div className="device-icon">
                                         <FaPlus size='80%'/>
