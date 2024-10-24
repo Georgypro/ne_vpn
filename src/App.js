@@ -12,6 +12,9 @@ import Promo from "./js/Promo";
 import YAuthMobile from "./registration/YAuthMobile";
 import Signature from "./js/elements/Signature";
 import ProfileVMobile from "./js/ProfileVMobile";
+import LoginusPrima from "./panel/LoginusPrima";
+import SplashVoodoo from "./panel/SplashVoodoo";
+import SearchMagna from "./panel/SearchMagna";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
                       <Route path="/mobileProfile" element={<ProfileVMobile/>}/>
                       <Route path="/yauth" element={<YAuth/>}/>
                       <Route path="/yauth-mobile" element={<YAuthMobile/>}/>
+                      <Route path="/panel-login" element={<LoginusPrima/>}/>
+                      <Route path="/panel-voodoo" element={<SplashVoodoo/>}/>
+                      <Route path="/panel-search" element={<SearchMagna/>}/>
                       <Route path="/shop" element={<Shop/>}/>
                       <Route path="" element={<StartPage/>}/>
                       <Route path="/" element={<StartPage/>}/>

@@ -66,7 +66,7 @@ function YAuth() {
                 return response.text();
             })
             .then(text => {
-                console.log(text);  // Log the raw text response
+                console.log(text);
                 if (text) {
                     return JSON.parse(text);
                 }
